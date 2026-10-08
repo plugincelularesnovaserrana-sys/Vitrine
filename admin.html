@@ -60,6 +60,10 @@
   .auto-foto.falta p{color:var(--erro)}
   .item{border:1px solid var(--linha);border-radius:12px;padding:12px;display:grid;gap:6px;margin-top:10px}
   .item.off{opacity:.6}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{border:2px solid var(--linha);background:var(--papel);color:var(--tinta);border-radius:999px;padding:9px 16px;font-weight:600}
+  .chip[aria-pressed=true]{border-color:var(--azul);background:var(--foto-bg);color:var(--azul)}
+  .chip[aria-pressed=true]::after{content:" ✓"}
   .tres{display:grid;grid-template-columns:1fr .7fr 1fr;gap:10px}
   .tres label{margin-top:4px;font-weight:500;color:var(--tinta-2)}
   .item b{font-family:var(--display);font-size:1.05rem}
@@ -161,19 +165,19 @@
     <input type="text" id="fModelo" list="modelosIphone" autocomplete="off" placeholder="iPhone 13 Pro Max">
     <datalist id="modelosIphone"></datalist>
 
-    <div class="duas">
-      <div>
-        <label for="fDetalhes">Detalhes <span class="dica" id="dicaDetalhes">(armazenamento)</span></label>
-        <input type="text" id="fDetalhes" autocomplete="off" placeholder="128GB">
-      </div>
-      <div>
-        <label for="fCond">Condição</label>
-        <select id="fCond">
-          <option value="Seminovo">Seminovo</option>
-          <option value="Novo">Novo</option>
-        </select>
-      </div>
+    <label id="lArm">Armazenamento <span class="dica" id="dicaDetalhes">(toque para marcar)</span></label>
+    <div class="chips" id="chipsArm" role="group" aria-labelledby="lArm"></div>
+    <div id="boxRam" hidden>
+      <label id="lRam">Memória RAM <span class="dica">(opcional)</span></label>
+      <div class="chips" id="chipsRam" role="group" aria-labelledby="lRam"></div>
     </div>
+    <input type="hidden" id="fDetalhes">
+
+    <label for="fCond">Condição</label>
+    <select id="fCond">
+      <option value="Seminovo">Seminovo</option>
+      <option value="Novo">Novo</option>
+    </select>
 
     <label for="fPreco">Preço à vista (R$)</label>
     <input type="text" id="fPreco" inputmode="decimal" autocomplete="off" placeholder="2890,00">
@@ -524,6 +528,37 @@ $("btnCorOutra").addEventListener("click", addCorOutra);
 $("fCorOutra").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); addCorOutra(); } });
 desenharCores();
 
+/* ============ ARMAZENAMENTO (botões) ============ */
+const ARMAZENAMENTOS = ["64GB","128GB","256GB","512GB","1TB","2TB"];
+const RAMS = ["4GB","6GB","8GB","12GB","16GB"];
+let armSel = "", ramSel = "";
+function lerDetalhes(){                       /* lê o texto salvo (ex.: "256GB · 8GB RAM") e marca os botões */
+  const t = $("fDetalhes").value;
+  const mr = t.match(/(\d+)\s*GB\s*RAM/i);
+  ramSel = mr ? mr[1] + "GB" : "";
+  const m = t.replace(/(\d+)\s*GB\s*RAM/i, "").match(/(\d+)\s*(GB|TB)/i);
+  armSel = m ? m[1] + m[2].toUpperCase() : "";
+}
+function gravarDetalhes(){
+  $("fDetalhes").value = [armSel, ramSel ? ramSel + " RAM" : ""].filter(Boolean).join(" · ");
+}
+function chips(boxId, opcoes, atual, aoClicar){
+  const box = $(boxId); box.replaceChildren();
+  const todas = atual && !opcoes.includes(atual) ? [...opcoes, atual] : opcoes;   /* valor antigo fora da lista continua marcado */
+  todas.forEach(v => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = v;
+    b.setAttribute("aria-pressed", v === atual ? "true" : "false");
+    b.onclick = () => aoClicar(v === atual ? "" : v);
+    box.append(b);
+  });
+}
+function desenharChips(){
+  chips("chipsArm", ARMAZENAMENTOS, armSel, v => { armSel = v; gravarDetalhes(); desenharChips(); });
+  chips("chipsRam", RAMS, ramSel, v => { ramSel = v; gravarDetalhes(); desenharChips(); });
+}
+function desenharArmazenamento(){ lerDetalhes(); desenharChips(); }
+
 /* ============ APPLE x ANDROID ============ */
 function definirPlat(plat){
   S.plat = plat;
@@ -534,7 +569,9 @@ function definirPlat(plat){
   if (apple) $("fModelo").setAttribute("list", "modelosIphone"); else $("fModelo").removeAttribute("list");
   $("fModelo").placeholder = apple ? "iPhone 13 Pro Max" : "Galaxy S23 Ultra";
   $("fDetalhes").placeholder = apple ? "128GB" : "256GB · 8GB RAM";
-  $("dicaDetalhes").textContent = apple ? "(armazenamento)" : "(armazenamento e RAM)";
+  $("boxRam").hidden = apple;                                /* RAM só para Android */
+  if (apple){ ramSel = ""; gravarDetalhes(); }
+  desenharArmazenamento();
   atualizarCamposSemi();
 }
 $("plApple").onclick = () => definirPlat("Apple");
@@ -557,6 +594,7 @@ function limparForm(){
   ["fModelo","fMarca","fDetalhes","fPreco","fCores","fParcelado","fBateria","fObs","fEntrada","fParcVal"].forEach(id => $(id).value = "");
   $("fParcN").value = "15";
   $("fCond").value = "Seminovo"; $("fDisp").checked = true;
+  desenharArmazenamento();
   atualizarCamposSemi(); atualizarBoleto();
   S.fotosForm = []; S.novasForm = []; S.editando = -1;
   $("gavetaCores").open = false;
@@ -632,7 +670,7 @@ function editar(i){
   const p = S.itens[i];
   S.editando = i;
   definirPlat(platDe(p)); $("fMarca").value = p.marca || "";
-  $("fModelo").value = p.modelo || ""; $("fDetalhes").value = p.detalhes || "";
+  $("fModelo").value = p.modelo || ""; $("fDetalhes").value = p.detalhes || ""; desenharArmazenamento();
   $("fCond").value = p.condicao === "Novo" || p.condicao === "Lacrado" ? "Novo" : "Seminovo";
   atualizarCamposSemi();
   $("fBateria").value = p.bateria || ""; $("fObs").value = p.observacao || "";
@@ -675,7 +713,7 @@ function desenharLista(){
     bc.onclick = () => {
       editar(i); S.editando = -1; S.novasForm = [];
       $("tFormulario").textContent = "Novo aparelho (cópia)"; $("btnAdicionar").textContent = "Adicionar aparelho";
-      desenharMiniaturas(); $("fDetalhes").focus();
+      desenharMiniaturas(); const c1 = $("chipsArm").querySelector("button"); if (c1) c1.focus();
     };
     const bd = document.createElement("button"); bd.type = "button"; bd.className = "sec mini";
     bd.textContent = p.disponivel === false ? "Marcar disponível" : "Marcar indisponível";
