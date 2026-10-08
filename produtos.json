@@ -12,7 +12,7 @@
       "cores": [
         "Dourado"
       ],
-      "bateria": 83,
+      "bateria": 100,
       "boleto": {
         "entrada": 799.9,
         "parcelas": 15,
@@ -52,6 +52,7 @@
       "cores": [
         "Rosa"
       ],
+      "bateria": 100,
       "boleto": {
         "entrada": 1099.9,
         "parcelas": 15,
@@ -91,6 +92,7 @@
       "cores": [
         "Lilás"
       ],
+      "bateria": 100,
       "boleto": {
         "entrada": 869.9,
         "parcelas": 15,
@@ -110,6 +112,7 @@
       "cores": [
         "Preto"
       ],
+      "bateria": 100,
       "boleto": {
         "entrada": 799.9,
         "parcelas": 15,
@@ -134,6 +137,46 @@
         "entrada": 799.9,
         "parcelas": 15,
         "parcela": 299.9
+      },
+      "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2590,
+      "fotos": [
+        "iphone-13-mv077eb7-1.jpg"
+      ],
+      "cores": [
+        "Preto"
+      ],
+      "bateria": 100,
+      "boleto": {
+        "entrada": 779.9,
+        "parcelas": 15,
+        "parcela": 289.9
+      },
+      "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2390,
+      "fotos": [
+        "iphone-13-mv077fui-2.jpg"
+      ],
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 100,
+      "boleto": {
+        "entrada": 719.9,
+        "parcelas": 15,
+        "parcela": 269.9
       },
       "disponivel": true
     }
