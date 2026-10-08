@@ -39,6 +39,45 @@
         "parcela": 399.9
       },
       "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 3599,
+      "fotos": [
+        "iphone-15-mv06nze2-1.jpg"
+      ],
+      "cores": [
+        "Rosa"
+      ],
+      "boleto": {
+        "entrada": 1099.9,
+        "parcelas": 15,
+        "parcela": 399.9
+      },
+      "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2899,
+      "fotos": [
+        "iphone-14-mv06o120-2.jpg"
+      ],
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 83,
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9
+      },
+      "disponivel": true
     }
   ]
 }
