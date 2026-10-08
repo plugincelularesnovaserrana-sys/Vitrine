@@ -78,6 +78,44 @@
         "parcela": 319.9
       },
       "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2899,
+      "fotos": [
+        "iphone-14-mv06szwf-1.jpg"
+      ],
+      "cores": [
+        "Lilás"
+      ],
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9
+      },
+      "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2690,
+      "fotos": [
+        "iphone-14-mv06t1e9-2.jpg"
+      ],
+      "cores": [
+        "Preto"
+      ],
+      "boleto": {
+        "entrada": 799.9,
+        "parcelas": 15,
+        "parcela": 299.9
+      },
+      "disponivel": true
     }
   ]
 }
