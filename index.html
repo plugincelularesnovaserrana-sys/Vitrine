@@ -277,6 +277,11 @@ async function carregar(){
 let produtos = [], abaAtiva = "Todos os produtos";
 
 const urlFoto = f => !f ? semFoto : (/^(https?:|data:|\/)/.test(f) ? f : CONFIG.pastaMidias + (f.includes("%") ? f : encodeURI(f)));
+// Endereço das fotos no GitHub (mesma pasta da lista): usado se a foto não existir ao lado do index
+const urlRemota = f => {
+  if (!f || !CONFIG.listaUrl || /^(https?:|data:|\/)/.test(f)) return "";
+  return CONFIG.listaUrl.replace(/[^\/?#]*(\?.*)?$/, "") + CONFIG.pastaMidias + (f.includes("%") ? f : encodeURI(f));
+};
 
 function linkZap(texto){ return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`; }
 function msgProduto(p){
@@ -323,13 +328,20 @@ function carrossel(p){
     const slide = document.createElement("div"); slide.className = "slide";
     const img = document.createElement("img");
     img.loading = "lazy"; img.alt = p.modelo;
-    img.crossOrigin = "anonymous";                       // permite medir a foto; se o servidor não deixar, tenta sem
-    img.onload = () => ajustarFoto(img);
-    img.onerror = () => {
-      if (img.crossOrigin){ img.removeAttribute("crossorigin"); img.src = urlFoto(f); }
-      else { img.onerror = null; img.src = semFoto; }
+    // tenta: foto local (com e sem permissão de medir) e depois a foto no GitHub
+    const tent = [[urlFoto(f), true], [urlFoto(f), false]];
+    const rem = urlRemota(f);
+    if (rem && rem !== urlFoto(f)) tent.push([rem, true], [rem, false]);
+    let k = 0;
+    const tentar = () => {
+      if (k >= tent.length){ img.onerror = null; img.src = semFoto; return; }
+      const [src, cors] = tent[k++];
+      if (cors) img.crossOrigin = "anonymous"; else img.removeAttribute("crossorigin");
+      img.src = src;
     };
-    img.src = urlFoto(f);
+    img.onload = () => ajustarFoto(img);
+    img.onerror = tentar;
+    tentar();
     slide.append(img); trilho.append(slide);
   });
   wrap.append(trilho);
