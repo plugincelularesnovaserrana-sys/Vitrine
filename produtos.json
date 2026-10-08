@@ -1,0 +1,74 @@
+{
+  "produtos": [
+    {
+      "modelo": "iPhone 12",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2090,
+      "fotos": [],
+      "cores": [
+        "Vermelho",
+        "Azul"
+      ],
+      "disponivel": true
+    },
+    {
+      "modelo": "iPhone 13",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2390,
+      "fotos": [],
+      "cores": [
+        "Vermelho"
+      ],
+      "disponivel": true
+    },
+    {
+      "modelo": "iPhone 14",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2690,
+      "fotos": [],
+      "cores": [
+        "Azul",
+        "Preto"
+      ],
+      "disponivel": true
+    },
+    {
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2890,
+      "fotos": [],
+      "cores": [
+        "Vermelho",
+        "Lilás"
+      ],
+      "disponivel": true
+    },
+    {
+      "modelo": "iPhone 12 Pro Max",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2700,
+      "fotos": [],
+      "cores": [
+        "Dourado"
+      ],
+      "disponivel": true
+    },
+    {
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 3690,
+      "fotos": [],
+      "cores": [
+        "Preto",
+        "Rosa"
+      ],
+      "disponivel": true
+    }
+  ]
+}
