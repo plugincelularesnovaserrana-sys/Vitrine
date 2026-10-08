@@ -389,7 +389,7 @@ function cartao(p){
   const tags = document.createElement("div"); tags.className = "tags";
   if (p.condicao){ const s = document.createElement("span"); s.className = "tag"; s.textContent = p.condicao; tags.append(s); }
   if (p.bateria){
-    const b = document.createElement("span"); b.className = "tag bat" + (p.bateria < 85 ? " baixa" : "");
+    const b = document.createElement("span"); b.className = "tag bat" + (p.bateria < 80 ? " baixa" : "");
     b.innerHTML = ICONE_BAT; b.append(`Bateria ${p.bateria}%`); tags.append(b);
   }
   if (tags.children.length) c.append(tags);
