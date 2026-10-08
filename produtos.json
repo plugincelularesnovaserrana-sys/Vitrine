@@ -116,6 +116,26 @@
         "parcela": 299.9
       },
       "disponivel": true
+    },
+    {
+      "plataforma": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2690,
+      "fotos": [
+        "iphone-14-mv06yw26-1.jpg"
+      ],
+      "cores": [
+        "Azul-claro"
+      ],
+      "bateria": 80,
+      "boleto": {
+        "entrada": 799.9,
+        "parcelas": 15,
+        "parcela": 299.9
+      },
+      "disponivel": true
     }
   ]
 }
