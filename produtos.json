@@ -69,6 +69,17 @@
         "Rosa"
       ],
       "disponivel": true
+    },
+    {
+      "modelo": "iPhone 13",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2590,
+      "fotos": [],
+      "cores": [
+        "Preto"
+      ],
+      "disponivel": true
     }
   ]
 }
