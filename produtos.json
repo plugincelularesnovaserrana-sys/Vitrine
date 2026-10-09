@@ -219,6 +219,46 @@
         "parcela": 229.9
       },
       "disponivel": true
+    },
+    {
+      "plataforma": "Android",
+      "modelo": "15",
+      "detalhes": "256GB · 8GB RAM",
+      "condicao": "Novo",
+      "preco": 1559,
+      "fotos": [
+        "15-mv07qbdb-1.jpg"
+      ],
+      "cores": [
+        "Preto"
+      ],
+      "boleto": {
+        "entrada": 399.9,
+        "parcelas": 11,
+        "parcela": 239.9
+      },
+      "disponivel": true,
+      "marca": "Redmi"
+    },
+    {
+      "plataforma": "Android",
+      "modelo": "Note 60x",
+      "detalhes": "128GB · 4GB RAM",
+      "condicao": "Novo",
+      "preco": 989,
+      "fotos": [
+        "note-60x-mv07qdb3-2.jpg"
+      ],
+      "cores": [
+        "Verde"
+      ],
+      "boleto": {
+        "entrada": 249.9,
+        "parcelas": 11,
+        "parcela": 159.9
+      },
+      "disponivel": true,
+      "marca": "Realme"
     }
   ]
 }
