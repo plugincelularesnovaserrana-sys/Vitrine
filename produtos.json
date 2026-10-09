@@ -12,7 +12,7 @@
       "cores": [
         "Dourado"
       ],
-      "bateria": 100,
+      "bateria": 83,
       "boleto": {
         "entrada": 799.9,
         "parcelas": 15,
@@ -52,7 +52,7 @@
       "cores": [
         "Rosa"
       ],
-      "bateria": 100,
+      "bateria": 82,
       "boleto": {
         "entrada": 1099.9,
         "parcelas": 15,
@@ -72,7 +72,7 @@
       "cores": [
         "Vermelho"
       ],
-      "bateria": 83,
+      "bateria": 82,
       "boleto": {
         "entrada": 869.9,
         "parcelas": 15,
@@ -92,7 +92,7 @@
       "cores": [
         "Lilás"
       ],
-      "bateria": 100,
+      "bateria": 83,
       "boleto": {
         "entrada": 869.9,
         "parcelas": 15,
@@ -112,7 +112,7 @@
       "cores": [
         "Preto"
       ],
-      "bateria": 100,
+      "bateria": 88,
       "boleto": {
         "entrada": 799.9,
         "parcelas": 15,
@@ -132,7 +132,7 @@
       "cores": [
         "Azul-claro"
       ],
-      "bateria": 80,
+      "bateria": 83,
       "boleto": {
         "entrada": 799.9,
         "parcelas": 15,
@@ -152,7 +152,7 @@
       "cores": [
         "Preto"
       ],
-      "bateria": 100,
+      "bateria": 85,
       "boleto": {
         "entrada": 779.9,
         "parcelas": 15,
@@ -212,6 +212,7 @@
       "cores": [
         "Vermelho"
       ],
+      "bateria": 82,
       "boleto": {
         "entrada": 619.9,
         "parcelas": 15,
