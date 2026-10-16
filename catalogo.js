@@ -37,7 +37,7 @@ const MODOS = {
   boleto: {
     titulo: "Celular no boleto",
     selos: () => [`Boleto em até ${CONFIG.boletoMax}x`, "Seu usado vale como entrada"],
-    rodape: "Entrada e parcelas sujeitas à análise de perfil. Disponibilidade confirmada no atendimento.",
+    rodape: "Entrada e parcelas sujeitas à análise de crédito. Disponibilidade confirmada no atendimento.",
     zap: "Olá! Vim pelo catálogo do boleto e quero entender como funciona.",
     botao: "Quero no boleto"
   },
@@ -189,9 +189,12 @@ function msgProduto(p){
   const extra = [p.detalhes, p.condicao, p.bateria ? `bateria ${p.bateria}%` : ""].filter(Boolean).join(", ");
   const nome = `*${nomeCompleto(p)}*${extra ? " (" + extra + ")" : ""}`;
   if (MODO === "boleto" && p.boleto){
+    // Catálogo é enviado no meio da conversa: a mensagem só informa o aparelho escolhido, para o vendedor seguir daí.
     const b = p.boleto;
-    const cond = (b.entrada > 0 ? `entrada a partir de ${brl(b.entrada)} + ` : "") + `${b.parcelas}x de ${brl(b.parcela)}`;
-    return `Olá! Vim pelo catálogo do boleto e tenho interesse no ${nome}, com ${cond}. Como funciona?`;
+    const cor = p.cores.length === 1 ? p.cores[0] : (p.cores.length > 1 ? "cor a escolher" : "");
+    const ficha = [p.detalhes, cor, p.condicao, p.bateria ? `bateria ${p.bateria}%` : ""].filter(Boolean).join(" · ");
+    const cond = (b.entrada > 0 ? `Entrada a partir de ${brl(b.entrada)} + ` : "") + `${b.parcelas}x de ${brl(b.parcela)} no boleto`;
+    return `Escolhi este no catálogo do boleto 👇\n\n📱 *${nomeCompleto(p)}*${ficha ? "\n" + ficha : ""}\n💰 ${cond}`;
   }
   if (MODO === "cartao" && p.cartao){
     return `Olá! Tenho interesse no ${nome}: ${brl(p.preco)} à vista ou ${p.cartao.parcelas}x de ${brl(p.cartao.parcela)} sem juros no cartão. Ainda está disponível?`;
@@ -315,7 +318,7 @@ function precoBoleto(p, pr){
   } else {
     pr.append(el("div", "rotulo", `${b.parcelas}x no boleto de`), el("div", "valor", brl(b.parcela)));
   }
-  pr.append(el("p", "nota", "Sujeito à análise de perfil"));
+  pr.append(el("p", "nota", "Sujeito à análise de crédito"));
 }
 
 function cartao(p){

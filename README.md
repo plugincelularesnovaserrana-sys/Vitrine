@@ -36,4 +36,4 @@ Formato gravado no JSON:
 
 ## Ao alterar catalogo.js ou catalogo.css
 
-As páginas carregam `catalogo.js?v=2` e `catalogo.css?v=2`. Ao publicar mudanças nesses arquivos, troque o número (`v=3`, `v=4`...) nas três páginas HTML para os celulares dos clientes pegarem a versão nova.
+As páginas carregam `catalogo.js?v=3` e `catalogo.css?v=3`. Ao publicar mudanças nesses arquivos, troque o número (`v=4`, `v=5`...) nas três páginas HTML para os celulares dos clientes pegarem a versão nova.
