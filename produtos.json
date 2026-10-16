@@ -2,26 +2,6 @@
   "produtos": [
     {
       "plataforma": "Apple",
-      "modelo": "iPhone 12 Pro Max",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 2700,
-      "fotos": [
-        "iphone-12-pro-max-mv066bfl-1.jpg"
-      ],
-      "cores": [
-        "Dourado"
-      ],
-      "bateria": 83,
-      "boleto": {
-        "entrada": 799.9,
-        "parcelas": 15,
-        "parcela": 299.9
-      },
-      "disponivel": true
-    },
-    {
-      "plataforma": "Apple",
       "modelo": "iPhone 15",
       "detalhes": "256GB",
       "condicao": "Seminovo",
