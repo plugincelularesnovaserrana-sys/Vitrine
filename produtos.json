@@ -201,26 +201,6 @@
       "disponivel": true
     },
     {
-      "plataforma": "Apple",
-      "modelo": "iPhone 12",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 2049,
-      "fotos": [
-        "iphone-12-mv07cqs1-2.jpg"
-      ],
-      "cores": [
-        "Vermelho"
-      ],
-      "bateria": 82,
-      "boleto": {
-        "entrada": 619.9,
-        "parcelas": 15,
-        "parcela": 229.9
-      },
-      "disponivel": true
-    },
-    {
       "plataforma": "Android",
       "modelo": "15",
       "detalhes": "256GB · 8GB RAM",
