@@ -196,8 +196,12 @@ function msgProduto(p){
     const cond = (b.entrada > 0 ? `Entrada a partir de ${brl(b.entrada)} + ` : "") + `${b.parcelas}x de ${brl(b.parcela)} no boleto`;
     return `Escolhi este no catálogo do boleto 👇\n\n📱 *${nomeCompleto(p)}*${ficha ? "\n" + ficha : ""}\n💰 ${cond}`;
   }
-  if (MODO === "cartao" && p.cartao){
-    return `Olá! Tenho interesse no ${nome}: ${brl(p.preco)} à vista ou ${p.cartao.parcelas}x de ${brl(p.cartao.parcela)} sem juros no cartão. Ainda está disponível?`;
+  if (MODO === "cartao"){
+    // Mesmo formato do boleto: só informa o aparelho escolhido para o vendedor seguir daí.
+    const cor = p.cores.length === 1 ? p.cores[0] : (p.cores.length > 1 ? "cor a escolher" : "");
+    const ficha = [p.detalhes, cor, p.condicao, p.bateria ? `bateria ${p.bateria}%` : ""].filter(Boolean).join(" · ");
+    const valores = `${brl(p.preco)} à vista` + (p.cartao ? ` ou ${p.cartao.parcelas}x de ${brl(p.cartao.parcela)} sem juros no cartão` : "");
+    return `Escolhi este no catálogo 👇\n\n📱 *${nomeCompleto(p)}*${ficha ? "\n" + ficha : ""}\n💰 ${valores}`;
   }
   return `Olá! Tenho interesse no ${nome} por ${brl(p.preco)} à vista. Ainda está disponível?`;
 }
