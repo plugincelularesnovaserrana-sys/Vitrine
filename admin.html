@@ -102,6 +102,15 @@
   .gaveta .resumo{margin-left:auto;display:flex;align-items:center;gap:6px;min-width:0;font-weight:500;color:var(--tinta-2)}
   .gaveta .resumo .bolinha{width:16px;height:16px;border-radius:50%;border:1px solid rgba(128,128,128,.55);flex:none}
   .gaveta .resumo .txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46vw}
+
+  /* bloco de preços */
+  fieldset.precos{border:0;padding:0;margin:16px 0 0;min-width:0}
+  fieldset.precos legend{font-family:var(--display);font-weight:700;font-size:1.05rem;padding:0}
+  .bloco-preco{border:1px solid var(--linha);border-radius:12px;padding:12px 14px;margin-top:10px;background:var(--papel)}
+  .bloco-preco h3{margin:0;font-size:.95rem;font-weight:700}
+  .bloco-preco label{margin-top:8px}
+  .bloco-preco input[type=text]{background:var(--card)}
+  .bloco-preco .sub{font-size:.8rem;margin-top:6px}
 </style>
 </head>
 <body>
@@ -179,9 +188,6 @@
       <option value="Novo">Novo</option>
     </select>
 
-    <label for="fPreco">Preço à vista (R$)</label>
-    <input type="text" id="fPreco" inputmode="decimal" autocomplete="off" placeholder="2890,00">
-
     <div id="boxBateria" hidden>
       <label for="fBateria">Bateria (%) <span class="dica">(saúde da bateria do iPhone seminovo)</span></label>
       <input type="text" id="fBateria" inputmode="numeric" maxlength="3" autocomplete="off" placeholder="89">
@@ -190,13 +196,36 @@
     <label for="fObs">Observação <span class="dica">(opcional, aparece para o cliente)</span></label>
     <input type="text" id="fObs" autocomplete="off" maxlength="160" placeholder="Ex.: pequeno risco na lateral, tela original">
 
-    <label id="lBoleto">Boleto a prazo <span class="dica">(opcional · entrada + parcelas)</span></label>
-    <div class="tres" role="group" aria-labelledby="lBoleto">
-      <div><label for="fEntrada">Entrada (R$)</label><input type="text" id="fEntrada" inputmode="decimal" autocomplete="off" placeholder="500,00"></div>
-      <div><label for="fParcN">Parcelas</label><input type="text" id="fParcN" inputmode="numeric" maxlength="2" autocomplete="off" value="15"></div>
-      <div><label for="fParcVal">Valor da parcela (R$)</label><input type="text" id="fParcVal" inputmode="decimal" autocomplete="off" placeholder="190,00"></div>
-    </div>
-    <p class="sub" id="resumoBoleto" aria-live="polite" style="margin-top:6px"></p>
+    <fieldset class="precos" aria-labelledby="lPrecos">
+      <legend id="lPrecos">Preços</legend>
+
+      <div class="bloco-preco">
+        <h3>À vista <span class="dica">(PIX ou dinheiro, já com desconto)</span></h3>
+        <label for="fPreco">Preço à vista (R$)</label>
+        <input type="text" id="fPreco" inputmode="decimal" autocomplete="off" placeholder="2890,00">
+        <p class="sub">Aparece no catálogo do cartão e no catálogo completo.</p>
+      </div>
+
+      <div class="bloco-preco">
+        <h3>Cartão de crédito <span class="dica">(opcional · sem juros)</span></h3>
+        <div class="duas">
+          <div><label for="fCartaoTotal">Preço no cartão (R$)</label><input type="text" id="fCartaoTotal" inputmode="decimal" autocomplete="off" placeholder="3190,00"></div>
+          <div><label for="fCartaoN">Parcelas sem juros</label><input type="text" id="fCartaoN" inputmode="numeric" maxlength="2" autocomplete="off" value="10"></div>
+        </div>
+        <p class="sub" id="resumoCartao" aria-live="polite" style="margin-top:6px"></p>
+      </div>
+
+      <div class="bloco-preco">
+        <h3 id="lBoleto">Boleto <span class="dica">(opcional · entrada + parcelas · iPhone 15x, Android 11x)</span></h3>
+        <div class="tres" role="group" aria-labelledby="lBoleto">
+          <div><label for="fEntrada">Entrada mínima (R$)</label><input type="text" id="fEntrada" inputmode="decimal" autocomplete="off" placeholder="500,00"></div>
+          <div><label for="fParcN">Parcelas</label><input type="text" id="fParcN" inputmode="numeric" maxlength="2" autocomplete="off" value="15"></div>
+          <div><label for="fParcVal">Valor da parcela (R$)</label><input type="text" id="fParcVal" inputmode="decimal" autocomplete="off" placeholder="190,00"></div>
+        </div>
+        <p class="sub" id="resumoBoleto" aria-live="polite" style="margin-top:6px"></p>
+        <p class="sub">Aparece no catálogo do boleto e no catálogo completo. Sem boleto preenchido, o aparelho não aparece no catálogo do boleto.</p>
+      </div>
+    </fieldset>
 
     <input type="hidden" id="fCores">
     <details class="gaveta" id="gavetaCores">
@@ -226,7 +255,8 @@
       <button type="button" class="sec" id="btnAdicionar">Adicionar aparelho</button>
       <button type="button" class="envia" id="btnEnviar">Atualizar lista</button>
     </div>
-    <p class="sub" style="margin-top:10px">Adicionar guarda este aparelho e abre os campos para o próximo. Atualizar lista envia tudo para o GitHub.</p>
+    <p class="sub" style="margin-top:10px">Adicionar guarda este aparelho e abre os campos para o próximo. Atualizar lista envia tudo para o GitHub.
+      A mesma lista alimenta os catálogos <b>boleto.html</b>, <b>cartao.html</b> e o completo (index.html).</p>
   </section>
 
   <!-- 3. Lista -->
@@ -573,6 +603,7 @@ function definirPlat(plat){
   if (apple){ ramSel = ""; gravarDetalhes(); }
   desenharArmazenamento();
   atualizarCamposSemi();
+  parcelasPadraoBoleto();
 }
 $("plApple").onclick = () => definirPlat("Apple");
 $("plAndroid").onclick = () => { definirPlat("Android"); $("fMarca").focus(); };
@@ -588,14 +619,35 @@ function atualizarBoleto(){
     ? `Total a prazo: ${brl(e + v * n)} (${e > 0 ? "entrada " + brl(e) + " + " : ""}${n}x de ${brl(v)})`
     : "";
 }
+/* parcelas padrão do boleto: iPhone 15x, Android 11x */
+const PARC_BOLETO = {Apple: 15, Android: 11};
+function parcelasPadraoBoleto(){
+  const atual = $("fParcN").value.trim();
+  if (atual === "" || Object.values(PARC_BOLETO).map(String).includes(atual)){
+    $("fParcN").value = String(PARC_BOLETO[S.plat] || 15);
+    atualizarBoleto();
+  }
+}
+/* cartão sem juros: preço no cartão dividido pelas parcelas */
+const centavos = n => Math.round(n * 100) / 100;
+function atualizarCartao(){
+  const t = paraNumero($("fCartaoTotal").value);
+  const n = parseInt($("fCartaoN").value.replace(/\D/g, ""), 10) || 0;
+  const avista = paraNumero($("fPreco").value);
+  if (!(t > 0 && n > 0)){ $("resumoCartao").textContent = ""; return; }
+  let txt = `${n}x de ${brl(centavos(t / n))} sem juros (total ${brl(t)})`;
+  if (avista > 0 && t > avista) txt += ` · desconto à vista de ${brl(t - avista)}`;
+  $("resumoCartao").textContent = txt;
+}
 
 /* ============ FORMULÁRIO ============ */
 function limparForm(){
-  ["fModelo","fMarca","fDetalhes","fPreco","fCores","fParcelado","fBateria","fObs","fEntrada","fParcVal"].forEach(id => $(id).value = "");
-  $("fParcN").value = "15";
+  ["fModelo","fMarca","fDetalhes","fPreco","fCores","fParcelado","fBateria","fObs","fEntrada","fParcVal","fCartaoTotal"].forEach(id => $(id).value = "");
+  $("fParcN").value = String(PARC_BOLETO[S.plat] || 15);
+  $("fCartaoN").value = "10";
   $("fCond").value = "Seminovo"; $("fDisp").checked = true;
   desenharArmazenamento();
-  atualizarCamposSemi(); atualizarBoleto();
+  atualizarCamposSemi(); atualizarBoleto(); atualizarCartao();
   S.fotosForm = []; S.novasForm = []; S.editando = -1;
   $("gavetaCores").open = false;
   desenharCores();
@@ -632,6 +684,15 @@ function adicionar(){
     boleto = {entrada: entrada > 0 ? entrada : 0, parcelas: parcN, parcela: parcVal};
   }
 
+  let cartao;
+  const cTotal = paraNumero($("fCartaoTotal").value);
+  const cN = parseInt($("fCartaoN").value.replace(/\D/g, ""), 10);
+  if (cTotal > 0){
+    if (!(cN >= 1 && cN <= 24)){ aviso("erro", "Informe as parcelas do cartão (ex.: 10)."); $("fCartaoN").focus(); return false; }
+    if (cTotal < preco && !confirm(`O preço no cartão (${brl(cTotal)}) está menor que o à vista (${brl(preco)}). Salvar assim mesmo?`)){ $("fCartaoTotal").focus(); return false; }
+    cartao = {total: cTotal, parcelas: cN, parcela: centavos(cTotal / cN)};
+  }
+
   const item = {
     plataforma: S.plat,
     modelo,
@@ -642,6 +703,7 @@ function adicionar(){
     cores,
     bateria,                                   /* undefined = não vai para o JSON */
     observacao: observacao || undefined,
+    cartao,                                    /* undefined = sem cartão no JSON */
     boleto,
     disponivel: $("fDisp").checked,
     novas: [...S.novasForm]
@@ -680,6 +742,10 @@ function editar(i){
   $("fParcVal").value = bo.parcela ? String(bo.parcela).replace(".", ",") : "";
   atualizarBoleto();
   $("fPreco").value = p.preco != null ? String(p.preco).replace(".", ",") : "";
+  const ca = p.cartao || {};
+  $("fCartaoTotal").value = ca.total ? String(ca.total).replace(".", ",") : "";
+  $("fCartaoN").value = ca.parcelas ? String(ca.parcelas) : "10";
+  atualizarCartao();
   $("fCores").value = (p.cores || []).join(", ");
   aplicarRegraCor();
   $("fParcelado").value = p.parcelado ? String(p.parcelado).replace(".", ",") : "";
@@ -705,7 +771,8 @@ function desenharLista(){
     const l3 = document.createElement("small");
     const nf = (p.fotos || []).length + (p.novas || []).length;
     l3.textContent = [platDe(p) === "Apple" ? "Apple" : (p.marca || "Android"), p.condicao, p.bateria ? "bateria " + p.bateria + "%" : "", p.observacao ? "com observação" : "",
-                      p.boleto ? `boleto ${p.boleto.entrada > 0 ? brl(p.boleto.entrada) + " + " : ""}${p.boleto.parcelas}x ${brl(p.boleto.parcela)}` : "", nf ? nf + (nf === 1 ? " foto" : " fotos") : "foto automática", (p.novas || []).length ? (p.novas.length + " para enviar") : "",
+                      p.cartao ? `cartão ${p.cartao.parcelas}x ${brl(p.cartao.parcela)} s/ juros` : "sem cartão",
+                      p.boleto ? `boleto ${p.boleto.entrada > 0 ? brl(p.boleto.entrada) + " + " : ""}${p.boleto.parcelas}x ${brl(p.boleto.parcela)}` : "sem boleto", nf ? nf + (nf === 1 ? " foto" : " fotos") : "foto automática", (p.novas || []).length ? (p.novas.length + " para enviar") : "",
                       p.disponivel === false ? "indisponível" : ""].filter(Boolean).join(" · ");
     const bt = document.createElement("div"); bt.className = "linha-btn";
     const be = document.createElement("button"); be.type = "button"; be.className = "sec mini"; be.textContent = "Editar"; be.onclick = () => editar(i);
@@ -792,6 +859,7 @@ $("fModelo").addEventListener("change", atualizarFotoAuto);
 $("fCond").addEventListener("change", aplicarRegraCor);
 $("fCond").addEventListener("change", atualizarCamposSemi);
 ["fEntrada","fParcN","fParcVal"].forEach(id => $(id).addEventListener("input", atualizarBoleto));
+["fCartaoTotal","fCartaoN","fPreco"].forEach(id => $(id).addEventListener("input", atualizarCartao));
 window.addEventListener("beforeunload", e => {
   if (S.itens.some(p => (p.novas || []).length)) { e.preventDefault(); e.returnValue = ""; }
 });
