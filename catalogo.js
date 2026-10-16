@@ -2,7 +2,7 @@
    Um único script para as três vitrines. Cada página escolhe o modo em <body data-modo="...">:
      completo -> index.html  (à vista + cartão + boleto)
      boleto   -> boleto.html (só entrada mínima + parcelas do boleto)
-     cartao   -> cartao.html (à vista com desconto + cartão sem juros)
+     cartao   -> cartao.html (à vista com desconto + cartão em até 18x)
    Todas leem a mesma lista (produtos.json) que o admin.html grava. */
 
 /* ============ CONFIGURAÇÃO ============ */
@@ -21,7 +21,7 @@ const CONFIG = {
   sistemaUrl: "",                 // sistema a embutir (vazio = seção oculta)
   sistemaTitulo: "Nosso sistema",
   boletoMax: 15,                  // maior número de parcelas no boleto (etiqueta do cabeçalho)
-  cartaoMax: 10,                  // parcelas sem juros no cartão (etiqueta do cabeçalho)
+  cartaoMax: 18,                  // máximo de parcelas no cartão (etiqueta do cabeçalho)
   faixasBoleto: [200, 250, 300, 350, 400, 500]   // filtro "Parcela até" do catálogo do boleto
 };
 
@@ -29,7 +29,7 @@ const CONFIG = {
 const MODOS = {
   completo: {
     titulo: "Aparelhos disponíveis",
-    selos: () => [`Boleto até ${CONFIG.boletoMax}x`, `Cartão até ${CONFIG.cartaoMax}x sem juros`],
+    selos: () => [`Boleto até ${CONFIG.boletoMax}x`, `Cartão em até ${CONFIG.cartaoMax}x`],
     rodape: "Valores e disponibilidade sujeitos a confirmação no atendimento.",
     zap: "Olá! Vim pela vitrine e quero tirar uma dúvida.",
     botao: "Quero este"
@@ -43,7 +43,7 @@ const MODOS = {
   },
   cartao: {
     titulo: "À vista e no cartão",
-    selos: () => [`Cartão em até ${CONFIG.cartaoMax}x sem juros`, "Desconto no PIX"],
+    selos: () => [`Cartão em até ${CONFIG.cartaoMax}x`, "Desconto no PIX"],
     rodape: "Valores e disponibilidade sujeitos a confirmação no atendimento.",
     zap: "Olá! Vim pelo catálogo e quero tirar uma dúvida.",
     botao: "Quero este"
@@ -54,7 +54,7 @@ const M = MODOS[MODO];
 
 /* ============ DEMONSTRAÇÃO ============ */
 const DEMO = [
-  {modelo:"iPhone 13", detalhes:"128GB", condicao:"Seminovo", preco:2890, cores:"Meia-noite", bateria:89, observacao:"Pequeno risco na lateral", cartao:{total:3190, parcelas:10, parcela:319}, boleto:{entrada:600, parcelas:15, parcela:215}},
+  {modelo:"iPhone 13", detalhes:"128GB", condicao:"Seminovo", preco:2890, cores:"Meia-noite", bateria:89, observacao:"Pequeno risco na lateral", cartao:{total:3590, parcelas:18, parcela:199.44}, boleto:{entrada:600, parcelas:15, parcela:215}},
   {modelo:"iPhone 14 Pro", detalhes:"256GB", condicao:"Seminovo", preco:4290, cores:"Preto", bateria:92, boleto:{entrada:900, parcelas:15, parcela:320}},
   {modelo:"Galaxy A55", detalhes:"256GB", condicao:"Novo", preco:1990, fotos:"a55.jpg", cores:"Azul", boleto:{entrada:450, parcelas:11, parcela:199}},
   {modelo:"Redmi Note 14", detalhes:"256GB", condicao:"Novo", preco:1390, fotos:"note14.jpg", cores:"Preto", observacao:"Lacrado com nota fiscal"}
@@ -107,7 +107,7 @@ function lerBoleto(b){
   const parcela = paraNumero(b.parcela), parcelas = parseInt(b.parcelas, 10), entrada = paraNumero(b.entrada);
   return parcela > 0 && parcelas > 0 ? {entrada: entrada > 0 ? entrada : 0, parcelas, parcela} : null;
 }
-// cartão sem juros: {total, parcelas, parcela}
+// cartão (com taxas): {total, parcelas, parcela}
 function lerCartao(c){
   if (!c || typeof c !== "object") return null;
   const total = paraNumero(c.total), parcelas = parseInt(c.parcelas, 10);
@@ -200,7 +200,7 @@ function msgProduto(p){
     // Mesmo formato do boleto: só informa o aparelho escolhido para o vendedor seguir daí.
     const cor = p.cores.length === 1 ? p.cores[0] : (p.cores.length > 1 ? "cor a escolher" : "");
     const ficha = [p.detalhes, cor, p.condicao, p.bateria ? `bateria ${p.bateria}%` : ""].filter(Boolean).join(" · ");
-    const valores = `${brl(p.preco)} à vista` + (p.cartao ? ` ou ${p.cartao.parcelas}x de ${brl(p.cartao.parcela)} sem juros no cartão` : "");
+    const valores = `${brl(p.preco)} à vista` + (p.cartao ? ` ou ${p.cartao.parcelas}x de ${brl(p.cartao.parcela)} no cartão` : "");
     return `Escolhi este no catálogo 👇\n\n📱 *${nomeCompleto(p)}*${ficha ? "\n" + ficha : ""}\n💰 ${valores}`;
   }
   return `Olá! Tenho interesse no ${nome} por ${brl(p.preco)} à vista. Ainda está disponível?`;
@@ -294,7 +294,7 @@ function liBoleto(p){
 }
 function liCartao(p){
   const c = p.cartao; if (!c) return null;
-  const li = el("li"); li.append("Cartão: ", el("b", null, `${c.parcelas}x de ${brl(c.parcela)}`), " sem juros");
+  const li = el("li"); li.append("Cartão: ", el("b", null, `${c.parcelas}x de ${brl(c.parcela)}`));
   return li;
 }
 
@@ -309,8 +309,8 @@ function precoCartao(p, pr){
   const c = p.cartao;
   if (c){
     const l = el("p", "linha-forte");
-    l.append("ou ", el("b", null, `${c.parcelas}x de ${brl(c.parcela)}`), " sem juros");
-    pr.append(l, el("p", "nota", `no cartão (total ${brl(c.total)})`));
+    l.append("ou ", el("b", null, `${c.parcelas}x de ${brl(c.parcela)}`), " no cartão");
+    pr.append(l, el("p", "nota", `total no cartão ${brl(c.total)}`));
   }
 }
 function precoBoleto(p, pr){

@@ -7,7 +7,7 @@ Catálogo virtual publicado no GitHub Pages. Todas as páginas leem a mesma list
 | Página | Link | O que mostra |
 |---|---|---|
 | `boleto.html` | `.../Vitrine/boleto.html` | Só **entrada mínima + parcelas** do boleto, com filtro "Parcela até R$ X". Use no anúncio do boleto. |
-| `cartao.html` | `.../Vitrine/cartao.html` | **À vista com desconto** (PIX/dinheiro) + **cartão sem juros**. |
+| `cartao.html` | `.../Vitrine/cartao.html` | **À vista com desconto** (PIX/dinheiro) + **cartão em até 18x**. |
 | `index.html` | `.../Vitrine/` | Catálogo completo (à vista, cartão e boleto). |
 | `admin.html` | `.../Vitrine/admin.html` | Cadastro dos aparelhos e envio da lista para o GitHub. |
 
@@ -23,17 +23,17 @@ No catálogo do boleto só aparecem aparelhos que têm boleto preenchido no admi
 ## Preços no admin
 
 - **À vista** – preço com desconto (PIX ou dinheiro).
-- **Cartão** – preço no cartão + parcelas sem juros (padrão 10x). O valor da parcela é calculado sozinho.
+- **Cartão** – preço no cartão já com as taxas + parcelas (padrão 18x, máximo 18). O valor da parcela é calculado sozinho.
 - **Boleto** – entrada mínima + parcelas + valor da parcela (padrão 15x para iPhone, 11x para Android).
 
 Formato gravado no JSON:
 
 ```json
 "preco": 2700,
-"cartao": {"total": 2970, "parcelas": 10, "parcela": 297},
+"cartao": {"total": 3590, "parcelas": 18, "parcela": 199.44},
 "boleto": {"entrada": 799.9, "parcelas": 15, "parcela": 299.9}
 ```
 
 ## Ao alterar catalogo.js ou catalogo.css
 
-As páginas carregam `catalogo.js?v=4` e `catalogo.css?v=4`. Ao publicar mudanças nesses arquivos, troque o número (`v=5`, `v=6`...) nas três páginas HTML para os celulares dos clientes pegarem a versão nova.
+As páginas carregam `catalogo.js?v=5` e `catalogo.css?v=5`. Ao publicar mudanças nesses arquivos, troque o número (`v=6`, `v=7`...) nas três páginas HTML para os celulares dos clientes pegarem a versão nova.

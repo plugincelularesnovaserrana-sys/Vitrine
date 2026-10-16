@@ -207,10 +207,10 @@
       </div>
 
       <div class="bloco-preco">
-        <h3>Cartão de crédito <span class="dica">(opcional · sem juros)</span></h3>
+        <h3>Cartão de crédito <span class="dica">(opcional · até 18x, valor já com as taxas)</span></h3>
         <div class="duas">
           <div><label for="fCartaoTotal">Preço no cartão (R$)</label><input type="text" id="fCartaoTotal" inputmode="decimal" autocomplete="off" placeholder="3190,00"></div>
-          <div><label for="fCartaoN">Parcelas sem juros</label><input type="text" id="fCartaoN" inputmode="numeric" maxlength="2" autocomplete="off" value="10"></div>
+          <div><label for="fCartaoN">Parcelas</label><input type="text" id="fCartaoN" inputmode="numeric" maxlength="2" autocomplete="off" value="18"></div>
         </div>
         <p class="sub" id="resumoCartao" aria-live="polite" style="margin-top:6px"></p>
       </div>
@@ -628,14 +628,14 @@ function parcelasPadraoBoleto(){
     atualizarBoleto();
   }
 }
-/* cartão sem juros: preço no cartão dividido pelas parcelas */
+/* cartão: preço no cartão (já com taxas) dividido pelas parcelas */
 const centavos = n => Math.round(n * 100) / 100;
 function atualizarCartao(){
   const t = paraNumero($("fCartaoTotal").value);
   const n = parseInt($("fCartaoN").value.replace(/\D/g, ""), 10) || 0;
   const avista = paraNumero($("fPreco").value);
   if (!(t > 0 && n > 0)){ $("resumoCartao").textContent = ""; return; }
-  let txt = `${n}x de ${brl(centavos(t / n))} sem juros (total ${brl(t)})`;
+  let txt = `${n}x de ${brl(centavos(t / n))} no cartão (total ${brl(t)})`;
   if (avista > 0 && t > avista) txt += ` · desconto à vista de ${brl(t - avista)}`;
   $("resumoCartao").textContent = txt;
 }
@@ -644,7 +644,7 @@ function atualizarCartao(){
 function limparForm(){
   ["fModelo","fMarca","fDetalhes","fPreco","fCores","fParcelado","fBateria","fObs","fEntrada","fParcVal","fCartaoTotal"].forEach(id => $(id).value = "");
   $("fParcN").value = String(PARC_BOLETO[S.plat] || 15);
-  $("fCartaoN").value = "10";
+  $("fCartaoN").value = "18";
   $("fCond").value = "Seminovo"; $("fDisp").checked = true;
   desenharArmazenamento();
   atualizarCamposSemi(); atualizarBoleto(); atualizarCartao();
@@ -688,7 +688,7 @@ function adicionar(){
   const cTotal = paraNumero($("fCartaoTotal").value);
   const cN = parseInt($("fCartaoN").value.replace(/\D/g, ""), 10);
   if (cTotal > 0){
-    if (!(cN >= 1 && cN <= 24)){ aviso("erro", "Informe as parcelas do cartão (ex.: 10)."); $("fCartaoN").focus(); return false; }
+    if (!(cN >= 1 && cN <= 18)){ aviso("erro", "Informe as parcelas do cartão (de 1 a 18)."); $("fCartaoN").focus(); return false; }
     if (cTotal < preco && !confirm(`O preço no cartão (${brl(cTotal)}) está menor que o à vista (${brl(preco)}). Salvar assim mesmo?`)){ $("fCartaoTotal").focus(); return false; }
     cartao = {total: cTotal, parcelas: cN, parcela: centavos(cTotal / cN)};
   }
@@ -744,7 +744,7 @@ function editar(i){
   $("fPreco").value = p.preco != null ? String(p.preco).replace(".", ",") : "";
   const ca = p.cartao || {};
   $("fCartaoTotal").value = ca.total ? String(ca.total).replace(".", ",") : "";
-  $("fCartaoN").value = ca.parcelas ? String(ca.parcelas) : "10";
+  $("fCartaoN").value = ca.parcelas ? String(ca.parcelas) : "18";
   atualizarCartao();
   $("fCores").value = (p.cores || []).join(", ");
   aplicarRegraCor();
@@ -771,7 +771,7 @@ function desenharLista(){
     const l3 = document.createElement("small");
     const nf = (p.fotos || []).length + (p.novas || []).length;
     l3.textContent = [platDe(p) === "Apple" ? "Apple" : (p.marca || "Android"), p.condicao, p.bateria ? "bateria " + p.bateria + "%" : "", p.observacao ? "com observação" : "",
-                      p.cartao ? `cartão ${p.cartao.parcelas}x ${brl(p.cartao.parcela)} s/ juros` : "sem cartão",
+                      p.cartao ? `cartão ${p.cartao.parcelas}x ${brl(p.cartao.parcela)}` : "sem cartão",
                       p.boleto ? `boleto ${p.boleto.entrada > 0 ? brl(p.boleto.entrada) + " + " : ""}${p.boleto.parcelas}x ${brl(p.boleto.parcela)}` : "sem boleto", nf ? nf + (nf === 1 ? " foto" : " fotos") : "foto automática", (p.novas || []).length ? (p.novas.length + " para enviar") : "",
                       p.disponivel === false ? "indisponível" : ""].filter(Boolean).join(" · ");
     const bt = document.createElement("div"); bt.className = "linha-btn";
