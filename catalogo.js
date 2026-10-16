@@ -54,7 +54,7 @@ const M = MODOS[MODO];
 
 /* ============ DEMONSTRAÇÃO ============ */
 const DEMO = [
-  {modelo:"iPhone 13", detalhes:"128GB", condicao:"Seminovo", preco:2890, cores:"Meia-noite", bateria:89, observacao:"Pequeno risco na lateral", cartao:{total:3590, parcelas:18, parcela:199.44}, boleto:{entrada:600, parcelas:15, parcela:215}},
+  {modelo:"iPhone 13", detalhes:"128GB", condicao:"Seminovo", preco:2890, cores:"Meia-noite", bateria:89, observacao:"Pequeno risco na lateral", boleto:{entrada:600, parcelas:15, parcela:215}},
   {modelo:"iPhone 14 Pro", detalhes:"256GB", condicao:"Seminovo", preco:4290, cores:"Preto", bateria:92, boleto:{entrada:900, parcelas:15, parcela:320}},
   {modelo:"Galaxy A55", detalhes:"256GB", condicao:"Novo", preco:1990, fotos:"a55.jpg", cores:"Azul", boleto:{entrada:450, parcelas:11, parcela:199}},
   {modelo:"Redmi Note 14", detalhes:"256GB", condicao:"Novo", preco:1390, fotos:"note14.jpg", cores:"Preto", observacao:"Lacrado com nota fiscal"}
@@ -107,14 +107,27 @@ function lerBoleto(b){
   const parcela = paraNumero(b.parcela), parcelas = parseInt(b.parcelas, 10), entrada = paraNumero(b.entrada);
   return parcela > 0 && parcelas > 0 ? {entrada: entrada > 0 ? entrada : 0, parcelas, parcela} : null;
 }
-// cartão (com taxas): {total, parcelas, parcela}
-function lerCartao(c){
-  if (!c || typeof c !== "object") return null;
-  const total = paraNumero(c.total), parcelas = parseInt(c.parcelas, 10);
-  let parcela = paraNumero(c.parcela);
-  if (!(parcela > 0) && total > 0 && parcelas > 0) parcela = Math.round(total / parcelas * 100) / 100;
-  return parcela > 0 && parcelas > 0 ? {total: total > 0 ? total : parcela * parcelas, parcelas, parcela} : null;
+// Cartão: calculado sozinho a partir do preço à vista e das taxas (%) definidas no admin
+// produtos.json -> "cartao": {"taxa10": 8, "taxa18": 15}  (acréscimo em % sobre o preço à vista)
+let TAXAS = {};
+function definirTaxas(c){
+  TAXAS = {};
+  if (!c || typeof c !== "object") return;
+  [10, 18].forEach(n => {
+    const v = c["taxa" + n];
+    if (v === "" || v == null) return;
+    const t = paraNumero(v);
+    if (t >= 0) TAXAS[n] = t;
+  });
 }
+function calcCartao(preco){
+  if (!(preco > 0)) return [];
+  return Object.keys(TAXAS).map(Number).sort((a, b) => a - b).map(n => {
+    const total = Math.round(preco * (1 + TAXAS[n] / 100) * 100) / 100;
+    return {parcelas: n, parcela: Math.ceil(+(total / n * 100).toFixed(6)) / 100, total};
+  });
+}
+const textoCartao = c => c.map(o => `${o.parcelas}x de ${brl(o.parcela)}`).join(" ou ");
 
 function normalizar(p){
   const nd = String(p.disponivel ?? "").toLowerCase();
@@ -132,7 +145,7 @@ function normalizar(p){
     preco: paraNumero(p.preco ?? p.avista),
     bateria: bat >= 1 && bat <= 100 ? bat : null,
     observacao: String(p.observacao ?? p.obs ?? "").trim(),
-    cartao: lerCartao(p.cartao),
+    cartao: calcCartao(paraNumero(p.preco ?? p.avista)),
     boleto: lerBoleto(p.boleto),
     fotos: fotosDe(p.fotos ?? p.foto, modelo),
     cores: lista(p.cores),
@@ -146,6 +159,7 @@ function lerLista(texto){
   const t = texto.trim();
   if (t.startsWith("[") || t.startsWith("{")){
     const j = JSON.parse(t);
+    definirTaxas(Array.isArray(j) ? null : j.cartao);
     return (Array.isArray(j) ? j : (j.produtos || j.items || [])).map(normalizar);
   }
   return t.split(/\r?\n/).filter(l => l.trim() && !l.trim().startsWith("#")).map(l => {
@@ -158,6 +172,7 @@ async function carregar(){
   if (!CONFIG.listaUrl){
     $("aviso").hidden = false;
     $("aviso").textContent = "Modo demonstração: defina CONFIG.listaUrl para carregar a lista real.";
+    definirTaxas({taxa10: 8, taxa18: 15});
     return DEMO.map(normalizar);
   }
   const headers = {};
@@ -200,7 +215,7 @@ function msgProduto(p){
     // Mesmo formato do boleto: só informa o aparelho escolhido para o vendedor seguir daí.
     const cor = p.cores.length === 1 ? p.cores[0] : (p.cores.length > 1 ? "cor a escolher" : "");
     const ficha = [p.detalhes, cor, p.condicao, p.bateria ? `bateria ${p.bateria}%` : ""].filter(Boolean).join(" · ");
-    const valores = `${brl(p.preco)} à vista` + (p.cartao ? ` ou ${p.cartao.parcelas}x de ${brl(p.cartao.parcela)} no cartão` : "");
+    const valores = `${brl(p.preco)} à vista` + (p.cartao.length ? ` ou ${textoCartao(p.cartao)} no cartão` : "");
     return `Escolhi este no catálogo 👇\n\n📱 *${nomeCompleto(p)}*${ficha ? "\n" + ficha : ""}\n💰 ${valores}`;
   }
   return `Olá! Tenho interesse no ${nome} por ${brl(p.preco)} à vista. Ainda está disponível?`;
@@ -293,8 +308,8 @@ function liBoleto(p){
   return li;
 }
 function liCartao(p){
-  const c = p.cartao; if (!c) return null;
-  const li = el("li"); li.append("Cartão: ", el("b", null, `${c.parcelas}x de ${brl(c.parcela)}`));
+  const c = p.cartao; if (!c.length) return null;
+  const li = el("li"); li.append("Cartão: ", el("b", null, textoCartao(c)));
   return li;
 }
 
@@ -306,12 +321,11 @@ function precoCompleto(p, pr){
 }
 function precoCartao(p, pr){
   pr.append(el("div", "avista", "À vista no PIX ou dinheiro"), el("div", "valor", brl(p.preco)));
-  const c = p.cartao;
-  if (c){
+  p.cartao.forEach(o => {
     const l = el("p", "linha-forte");
-    l.append("ou ", el("b", null, `${c.parcelas}x de ${brl(c.parcela)}`), " no cartão");
-    pr.append(l, el("p", "nota", `total no cartão ${brl(c.total)}`));
-  }
+    l.append("ou ", el("b", null, `${o.parcelas}x de ${brl(o.parcela)}`), " no cartão");
+    pr.append(l);
+  });
 }
 function precoBoleto(p, pr){
   const b = p.boleto;

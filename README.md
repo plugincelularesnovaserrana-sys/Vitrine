@@ -23,17 +23,17 @@ No catálogo do boleto só aparecem aparelhos que têm boleto preenchido no admi
 ## Preços no admin
 
 - **À vista** – preço com desconto (PIX ou dinheiro).
-- **Cartão** – preço no cartão já com as taxas + parcelas (padrão 18x, máximo 18). O valor da parcela é calculado sozinho.
+- **Cartão** – não é preenchido por aparelho. No admin você coloca só o **% de acréscimo para 10x e para 18x** (vale para todos). O site soma o % ao preço à vista e divide pelas parcelas.
 - **Boleto** – entrada mínima + parcelas + valor da parcela (padrão 15x para iPhone, 11x para Android).
 
 Formato gravado no JSON:
 
 ```json
+"cartao": {"taxa10": 8, "taxa18": 15},   // no topo do arquivo, vale para todos
 "preco": 2700,
-"cartao": {"total": 3590, "parcelas": 18, "parcela": 199.44},
 "boleto": {"entrada": 799.9, "parcelas": 15, "parcela": 299.9}
 ```
 
 ## Ao alterar catalogo.js ou catalogo.css
 
-As páginas carregam `catalogo.js?v=5` e `catalogo.css?v=5`. Ao publicar mudanças nesses arquivos, troque o número (`v=6`, `v=7`...) nas três páginas HTML para os celulares dos clientes pegarem a versão nova.
+As páginas carregam `catalogo.js?v=6` e `catalogo.css?v=6`. Ao publicar mudanças nesses arquivos, troque o número (`v=7`, `v=8`...) nas três páginas HTML para os celulares dos clientes pegarem a versão nova.
