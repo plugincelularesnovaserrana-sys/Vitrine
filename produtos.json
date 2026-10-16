@@ -18,7 +18,7 @@
         "parcelas": 15,
         "parcela": 299.9
       },
-      "disponivel": true
+      "disponivel": false
     },
     {
       "plataforma": "Apple",
@@ -198,7 +198,7 @@
         "parcelas": 15,
         "parcela": 229.9
       },
-      "disponivel": true
+      "disponivel": false
     },
     {
       "plataforma": "Apple",
@@ -218,7 +218,7 @@
         "parcelas": 15,
         "parcela": 229.9
       },
-      "disponivel": true
+      "disponivel": false
     },
     {
       "plataforma": "Android",
