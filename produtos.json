@@ -2,26 +2,6 @@
   "produtos": [
     {
       "plataforma": "Apple",
-      "modelo": "iPhone 12 Pro Max",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 2700,
-      "fotos": [
-        "iphone-12-pro-max-mv066bfl-1.jpg"
-      ],
-      "cores": [
-        "Dourado"
-      ],
-      "bateria": 83,
-      "boleto": {
-        "entrada": 799.9,
-        "parcelas": 15,
-        "parcela": 299.9
-      },
-      "disponivel": false
-    },
-    {
-      "plataforma": "Apple",
       "modelo": "iPhone 15",
       "detalhes": "256GB",
       "condicao": "Seminovo",
@@ -187,26 +167,6 @@
       "condicao": "Seminovo",
       "preco": 2049,
       "fotos": [
-        "iphone-12-mv07cp1w-1.jpg"
-      ],
-      "cores": [
-        "Azul"
-      ],
-      "bateria": 82,
-      "boleto": {
-        "entrada": 619.9,
-        "parcelas": 15,
-        "parcela": 229.9
-      },
-      "disponivel": false
-    },
-    {
-      "plataforma": "Apple",
-      "modelo": "iPhone 12",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 2049,
-      "fotos": [
         "iphone-12-mv07cqs1-2.jpg"
       ],
       "cores": [
@@ -219,26 +179,6 @@
         "parcela": 229.9
       },
       "disponivel": false
-    },
-    {
-      "plataforma": "Android",
-      "modelo": "15",
-      "detalhes": "256GB · 8GB RAM",
-      "condicao": "Novo",
-      "preco": 1559,
-      "fotos": [
-        "15-mv07qbdb-1.jpg"
-      ],
-      "cores": [
-        "Preto"
-      ],
-      "boleto": {
-        "entrada": 399.9,
-        "parcelas": 11,
-        "parcela": 239.9
-      },
-      "disponivel": false,
-      "marca": "Redmi"
     },
     {
       "plataforma": "Android",
