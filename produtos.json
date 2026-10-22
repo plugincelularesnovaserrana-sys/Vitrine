@@ -1,4 +1,7 @@
 {
+  "cartao": {
+    "taxa10": 14
+  },
   "produtos": [
     {
       "plataforma": "Apple",
@@ -18,7 +21,11 @@
         "parcelas": 15,
         "parcela": 399.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vwnuh6s",
+      "videos": [
+        "aparelhos/vwnuh6s/video-mvjtvxkw-1.mp4"
+      ]
     },
     {
       "plataforma": "Apple",
@@ -38,7 +45,8 @@
         "parcelas": 15,
         "parcela": 399.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzstbvh"
     },
     {
       "plataforma": "Apple",
@@ -58,7 +66,8 @@
         "parcelas": 15,
         "parcela": 319.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzstv5x"
     },
     {
       "plataforma": "Apple",
@@ -78,7 +87,8 @@
         "parcelas": 15,
         "parcela": 319.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzstyl4"
     },
     {
       "plataforma": "Apple",
@@ -98,7 +108,8 @@
         "parcelas": 15,
         "parcela": 299.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzstitc"
     },
     {
       "plataforma": "Apple",
@@ -118,7 +129,8 @@
         "parcelas": 15,
         "parcela": 299.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzstyfe"
     },
     {
       "plataforma": "Apple",
@@ -138,7 +150,8 @@
         "parcelas": 15,
         "parcela": 289.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzst2oo"
     },
     {
       "plataforma": "Apple",
@@ -158,7 +171,8 @@
         "parcelas": 15,
         "parcela": 269.9
       },
-      "disponivel": true
+      "disponivel": true,
+      "id": "vzstezr"
     },
     {
       "plataforma": "Apple",
@@ -178,7 +192,8 @@
         "parcelas": 15,
         "parcela": 229.9
       },
-      "disponivel": false
+      "disponivel": false,
+      "id": "vzstcm3"
     },
     {
       "plataforma": "Android",
@@ -198,7 +213,8 @@
         "parcela": 159.9
       },
       "disponivel": false,
-      "marca": "Realme"
+      "marca": "Realme",
+      "id": "vzstix6"
     }
   ]
 }
