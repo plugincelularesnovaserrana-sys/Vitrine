@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bia · Teste</title>
+<style>
+:root{--bg:#f4f5f7;--panel:#fff;--ink:#1d2330;--muted:#667085;--line:#e3e6eb;--brand:#4f46e5;--brand-ink:#fff;
+  --wa-bg:#efeae2;--wa-in:#fff;--wa-out:#d9fdd3;--wa-ink:#111b21;--ok:#0f9d58;--warn:#b54708;--crit:#c0392b;--chip:#eef0ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1218;--panel:#171b23;--ink:#e7eaf0;--muted:#98a2b3;--line:#262c38;
+  --brand:#818cf8;--brand-ink:#0f1218;--wa-bg:#0b141a;--wa-in:#202c33;--wa-out:#005c4b;--wa-ink:#e9edef;--chip:#232a45}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:18px 16px 40px}
+header h1{margin:0;font-size:1.4rem}
+header p{margin:6px 0 0;color:var(--muted);max-width:760px}
+.badge{display:inline-block;margin-top:10px;font-size:.78rem;padding:3px 10px;border-radius:99px;background:var(--chip);color:var(--brand);font-weight:600}
+.opts{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:14px 0}
+.opts label{font-size:.88rem;color:var(--ink);display:flex;gap:6px;align-items:center}
+select,input[type=text],input[type=password]{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 8px}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 14px}
+button.primary{background:var(--brand);color:var(--brand-ink);border-color:var(--brand);font-weight:600}
+button:disabled{opacity:.55;cursor:default}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.phone{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-weight:700}
+.top b{display:block}.top small{color:var(--muted)}
+.chat{background:var(--wa-bg);padding:14px;overflow-y:auto;height:min(600px,62vh);display:flex;flex-direction:column;gap:6px}
+.msg{max-width:80%;padding:7px 10px 18px;border-radius:9px;position:relative;color:var(--wa-ink);white-space:pre-wrap;word-wrap:break-word;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg.in{background:var(--wa-in);align-self:flex-start}
+.msg.out{background:var(--wa-out);align-self:flex-end}
+.msg .t{position:absolute;right:8px;bottom:3px;font-size:.68rem;opacity:.6}
+.msg img,.msg video{display:block;width:240px;max-width:100%;border-radius:6px;margin-bottom:6px;background:#000}
+.sys{align-self:center;background:rgba(0,0,0,.06);color:var(--wa-ink);font-size:.78rem;padding:4px 10px;border-radius:8px;text-align:center;max-width:90%}
+.typing{align-self:flex-start;background:var(--wa-in);color:var(--muted);font-size:.85rem;padding:7px 12px;border-radius:9px}
+form.send{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+form.send textarea{flex:1;font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px 10px;resize:none;background:var(--panel);color:var(--ink);min-height:42px}
+.side{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+.card h3{margin:0 0 10px;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kv small{display:block;color:var(--muted);font-size:.74rem}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:.74rem;padding:3px 9px;border-radius:99px;background:var(--chip);color:var(--brand);font-weight:600}
+.nota{font-size:.84rem;white-space:pre-wrap;background:var(--bg);border-radius:8px;padding:10px;min-height:46px}
+.log{font:12px/1.5 ui-monospace,Menlo,monospace;color:var(--muted);max-height:170px;overflow:auto;white-space:pre-wrap}
+.login{max-width:380px;margin:60px auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.login h2{margin:0 0 6px}.login p{color:var(--muted);margin:0 0 14px}
+.login input{width:100%;margin-bottom:10px}
+.erro{color:var(--crit);font-size:.85rem;min-height:1.2em}
+</style>
+</head>
+<body>
+<div class="login" id="login">
+  <h2>Bia · Teste</h2>
+  <p>Digite o código de acesso que você recebeu da Plugin.</p>
+  <input type="password" id="codigo" placeholder="Código de acesso" autocomplete="off">
+  <button class="primary" id="entrar" style="width:100%">Entrar</button>
+  <div class="erro" id="erroLogin"></div>
+</div>
+<div class="wrap" id="app" hidden>
+<header>
+  <h1>Bia · Vendedora Virtual Plugin Celulares</h1>
+  <p>Ambiente de teste com a Bia de verdade: mesmo cérebro, estoque real da vitrine e todas as travas de segurança. Escreva como se fosse um cliente no WhatsApp; ao lado aparece o que o CRM faria.</p>
+  <span class="badge">Teste · nada aqui vai para o CRM nem para clientes</span>
+</header>
+<div class="opts">
+  <button id="nova">Nova conversa</button>
+  <button id="sumiu" title="Simula o cliente parando de responder">Cliente sumiu</button>
+  <label>Origem <select id="origem"><option value="anuncio_boleto">Anúncio do boleto</option><option value="">Sem anúncio</option></select></label>
+  <label>Canal <select id="canal"><option value="comercial">Comercial</option><option value="financeiro">Financeiro</option></select></label>
+  <label>Loja <select id="loja"><option value="auto">Horário real</option><option value="aberta">Aberta</option><option value="fechada">Fechada</option></select></label>
+  <label><input type="checkbox" id="real"> Tempo real (20–50 s)</label>
+</div>
+<div class="grid">
+  <div class="phone">
+    <div class="top"><div class="av">P</div><div><b>Plugin Celulares</b><small id="status">online</small></div></div>
+    <div class="chat" id="chat"></div>
+    <form class="send" id="form"><textarea id="txt" rows="1" placeholder="Escreva como o cliente…"></textarea><button class="primary" id="send">Enviar</button></form>
+  </div>
+  <div class="side">
+    <div class="card"><h3>CRM</h3><div class="kv">
+      <div><small>Setor</small><b id="k-setor">Bia atendendo</b></div>
+      <div><small>Termômetro</small><b id="k-temp">—</b></div>
+      <div><small>Cérebro</small><b id="k-cer">—</b></div>
+      <div><small>Ação</small><b id="k-acao">—</b></div>
+    </div></div>
+    <div class="card"><h3>Tags</h3><div class="pills" id="tags"><span style="color:var(--muted);font-size:.8rem">sem tags</span></div></div>
+    <div class="card"><h3>Nota interna para o vendedor</h3><div class="nota" id="nota">Aparece quando a Bia passa o cliente para o time.</div></div>
+    <div class="card"><h3>Registro</h3><div class="log" id="log"></div></div>
+  </div>
+</div>
+</div>
+<script>
+// Endereço do cérebro da Bia (Cloudflare). Também pode vir na URL: bia-teste.html?api=https://...
+const BIA_URL_PADRAO = "COLE_AQUI_O_ENDERECO_DO_WORKER";
+const params = new URLSearchParams(location.search);
+const BIA_URL = (params.get("api") || BIA_URL_PADRAO).replace(/\/+$/, "");
+const $ = id => document.getElementById(id);
+const ls = { get(k){ try { return localStorage.getItem(k) } catch { return null } }, set(k,v){ try { localStorage.setItem(k,v) } catch {} } };
+let codigo = ls.get("bia_codigo") || "", sessao = "", ocupado = false, tags = new Set(), humano = false;
+const hora = () => new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const wa = s => esc(s).replace(/\*([^*\n]+)\*/g, "<b>$1</b>").replace(/_([^_\n]+)_/g, "<i>$1</i>");
+const espera = s => new Promise(ok => setTimeout(ok, ($("real").checked ? s : s / 8) * 1000));
+function bolha(txt, lado, midia) {
+  const b = document.createElement("div"); b.className = "msg " + lado;
+  if (midia && midia.tipo === "img") { const im = document.createElement("img"); im.src = midia.url; im.alt = ""; b.append(im); }
+  if (midia && midia.tipo === "video") { const v = document.createElement("video"); v.src = midia.url; v.controls = true; v.playsInline = true; v.preload = "metadata"; b.append(v); }
+  if (txt) { const sp = document.createElement("span"); sp.innerHTML = wa(txt); b.append(sp); }
+  const t = document.createElement("span"); t.className = "t"; t.textContent = hora(); b.append(t);
+  $("chat").append(b); $("chat").scrollTop = 1e9;
+}
+function sys(t) { const s = document.createElement("div"); s.className = "sys"; s.textContent = t; $("chat").append(s); $("chat").scrollTop = 1e9; }
+function log(t) { $("log").textContent = hora() + " " + t + "\n" + $("log").textContent; }
+function renderTags() { $("tags").innerHTML = [...tags].map(t => `<span class="pill">${esc(t)}</span>`).join("") || '<span style="color:var(--muted);font-size:.8rem">sem tags</span>'; }
+async function digitando(seg) { const ty = document.createElement("div"); ty.className = "typing"; ty.textContent = "Bia está digitando…"; $("chat").append(ty); $("chat").scrollTop = 1e9; $("status").textContent = "digitando…"; await espera(seg); ty.remove(); $("status").textContent = "online"; }
+async function chama(mensagem) {
+  const loja = $("loja").value;
+  const r = await fetch(BIA_URL + "/teste", { method: "POST", headers: { "content-type": "application/json", "x-teste-codigo": codigo },
+    body: JSON.stringify({ sessao, mensagem, origem: $("origem").value, canal: $("canal").value, loja_aberta: loja === "auto" ? undefined : loja === "aberta" }) });
+  const j = await r.json().catch(() => ({ erro: "resposta inválida" }));
+  if (!r.ok) throw new Error(j.erro || ("erro " + r.status));
+  return j;
+}
+async function falar(texto, retomada = false) {
+  if (ocupado) return; ocupado = true; $("send").disabled = true;
+  if (!retomada) bolha(texto, "out"); else sys("⏱ cliente ficou sem responder · a Bia tenta retomar");
+  if (humano) { sys("A Bia já passou este cliente pro time. Toque em Nova conversa pra testar de novo."); ocupado = false; $("send").disabled = false; return; }
+  try {
+    const leitura = Math.max(5, Math.min(15, 4 + texto.length * 0.05));
+    const pedido = chama(retomada ? "#followup" : texto);
+    await espera(leitura);
+    const r = await pedido;
+    if (r.modelo) $("k-cer").textContent = /haiku/.test(r.modelo) ? "Haiku" : "Sonnet";
+    if (r.temperatura) $("k-temp").textContent = { frio: "🧊 frio", morno: "🌤 morno", quente: "🔥 quente" }[r.temperatura] || r.temperatura;
+    const pausas = r.pausas || [];
+    for (let i = 0; i < (r.mensagens || []).length; i++) { await digitando(Math.max(3, (pausas[i] || 10) - (i ? 0 : leitura))); bolha(r.mensagens[i], "in"); }
+    if ((r.aparelhos || []).length) { log("conferindo o estoque…"); await espera(r.pausa_fotos || 20);
+      for (let i = 0; i < r.aparelhos.length; i++) { if (i) await espera(r.pausa_entre_fotos || 5); const a = r.aparelhos[i]; bolha(a.legenda, "in", a.foto ? { tipo: "img", url: a.foto } : null); log("foto enviada"); } }
+    if (r.video_aparelho) { await espera(15); bolha("🎥 " + r.video_aparelho.nome, "in", { tipo: "video", url: r.video_aparelho.url }); log("vídeo do aparelho enviado"); }
+    if (r.midia) { await espera(4); if (r.midia_url) bolha("", "in", { tipo: r.midia === "video_explicativo" ? "video" : "img", url: r.midia_url }); else bolha(r.midia === "video_explicativo" ? "🎬 [vídeo explicativo]" : "🖼️ [resumo do contrato]", "in"); log("mídia: " + r.midia); }
+    if (r.apos_fotos) { await digitando(Math.min(20, 6 + r.apos_fotos.length * 0.08)); bolha(r.apos_fotos, "in"); }
+    if (r.tag) { tags.add(r.tag); renderTags(); }
+    $("k-acao").textContent = r.acao || "—";
+    if (r.resumo && /trava de segurança/.test(r.resumo)) log("🛡 " + r.resumo);
+    if (r.acao && r.acao !== "continuar") {
+      humano = true;
+      const setor = { comercial: "Comercial (rodízio)", financeiro: "Financeiro", suporte: "Comercial · SUPORTE", fora_regiao: "Encerrado", nao_comercial: "Encerrado" }[r.acao] || "Comercial";
+      $("k-setor").textContent = setor; sys("Transferido para " + setor);
+      if (r.resumo) $("nota").textContent = r.resumo;
+    }
+  } catch (e) { sys("Não consegui falar com a Bia (" + e.message + ")."); log("erro: " + e.message); }
+  ocupado = false; $("send").disabled = false; $("txt").focus();
+}
+function nova() {
+  sessao = String(Date.now()).slice(-10) + String(Math.floor(Math.random() * 90 + 10));
+  tags = new Set(); humano = false; renderTags(); $("chat").innerHTML = ""; $("log").textContent = "";
+  $("nota").textContent = "Aparece quando a Bia passa o cliente para o time."; ["k-temp", "k-cer", "k-acao"].forEach(k => $(k).textContent = "—"); $("k-setor").textContent = "Bia atendendo";
+  sys("Nova conversa · escreva como o cliente (ex.: “vi o anúncio do iPhone no boleto”)");
+}
+async function entrar() {
+  codigo = $("codigo").value.trim(); $("erroLogin").textContent = "";
+  if (!codigo) return;
+  if (/COLE_AQUI/.test(BIA_URL)) { $("erroLogin").textContent = "A página ainda não foi ligada ao cérebro da Bia."; return; }
+  try {
+    const r = await fetch(BIA_URL + "/teste", { method: "POST", headers: { "content-type": "application/json", "x-teste-codigo": codigo }, body: JSON.stringify({ sessao: "1", mensagem: "#reset" }) });
+    if (r.status === 401) { $("erroLogin").textContent = "Código inválido."; return; }
+  } catch { $("erroLogin").textContent = "Não consegui falar com o cérebro da Bia agora."; return; }
+  ls.set("bia_codigo", codigo); $("login").hidden = true; $("app").hidden = false; nova();
+}
+$("entrar").onclick = entrar; $("codigo").onkeydown = e => { if (e.key === "Enter") entrar(); };
+if (codigo) $("codigo").value = codigo;
+$("form").onsubmit = e => { e.preventDefault(); const t = $("txt").value.trim(); if (!t) return; $("txt").value = ""; falar(t); };
+$("txt").onkeydown = e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("form").requestSubmit(); } };
+$("nova").onclick = nova; $("sumiu").onclick = () => falar("", true);
+["origem", "canal"].forEach(id => $(id).onchange = nova);
+</script>
+</body>
+</html>
