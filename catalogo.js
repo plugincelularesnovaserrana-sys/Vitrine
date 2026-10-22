@@ -148,6 +148,8 @@ function normalizar(p){
     cartao: calcCartao(paraNumero(p.preco ?? p.avista)),
     boleto: lerBoleto(p.boleto),
     fotos: fotosDe(p.fotos ?? p.foto, modelo),
+    videos: lista(p.videos),
+    id: p.id ? String(p.id) : "",
     cores: lista(p.cores),
     disponivel: !(p.disponivel === false || nd === "nao" || nd === "não")
   };
@@ -276,8 +278,15 @@ function carrossel(p){
     tentar();
     slide.append(img); trilho.append(slide);
   });
+  (p.videos || []).forEach(v => {
+    const slide = document.createElement("div"); slide.className = "slide";
+    const vid = document.createElement("video");
+    vid.className = "video-slide"; vid.src = urlFoto(v); vid.controls = true; vid.preload = "metadata"; vid.playsInline = true;
+    slide.append(vid); trilho.append(slide);
+  });
   wrap.append(trilho);
-  if (fotos.length > 1){
+  const totalMidias = fotos.length + (p.videos || []).length;
+  if (totalMidias > 1){
     const mk = (cls, txt, rotulo, dir) => {
       const b = document.createElement("button");
       b.type = "button"; b.className = "seta " + cls; b.textContent = txt; b.setAttribute("aria-label", rotulo);
@@ -285,7 +294,7 @@ function carrossel(p){
       return b;
     };
     const pontos = document.createElement("div"); pontos.className = "pontos";
-    fotos.forEach(() => pontos.append(document.createElement("i")));
+    for (let k = 0; k < totalMidias; k++) pontos.append(document.createElement("i"));
     const marcar = () => {
       const i = Math.round(trilho.scrollLeft / trilho.clientWidth);
       [...pontos.children].forEach((d, k) => d.classList.toggle("on", k === i));
