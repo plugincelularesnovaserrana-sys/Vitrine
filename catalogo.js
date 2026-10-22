@@ -278,11 +278,28 @@ function carrossel(p){
     tentar();
     slide.append(img); trilho.append(slide);
   });
+  // vídeos: tocam sozinhos, mudos e em loop quando aparecem na tela; toque no vídeo pausa/continua; botão liga o som
+  const obsVideo = ("IntersectionObserver" in window) ? new IntersectionObserver(es => es.forEach(en => {
+    const v = en.target.querySelector("video"); if (!v) return;
+    if (en.isIntersecting) v.play().catch(() => {}); else v.pause();
+  }), {threshold: 0.6}) : null;
   (p.videos || []).forEach(v => {
-    const slide = document.createElement("div"); slide.className = "slide";
+    const slide = document.createElement("div"); slide.className = "slide slide-video";
     const vid = document.createElement("video");
-    vid.className = "video-slide"; vid.src = urlFoto(v); vid.controls = true; vid.preload = "metadata"; vid.playsInline = true;
-    slide.append(vid); trilho.append(slide);
+    vid.className = "video-slide"; vid.src = urlFoto(v) + "#t=0.1";
+    vid.muted = true; vid.defaultMuted = true; vid.loop = true; vid.playsInline = true; vid.preload = "metadata";
+    vid.setAttribute("muted", ""); vid.setAttribute("loop", ""); vid.setAttribute("playsinline", ""); vid.setAttribute("webkit-playsinline", "");
+    const som = document.createElement("button");
+    som.type = "button"; som.className = "video-som"; som.textContent = "🔇"; som.setAttribute("aria-label", "Ligar o som do vídeo");
+    som.onclick = e => {
+      e.stopPropagation(); vid.muted = !vid.muted;
+      som.textContent = vid.muted ? "🔇" : "🔊";
+      som.setAttribute("aria-label", vid.muted ? "Ligar o som do vídeo" : "Desligar o som do vídeo");
+    };
+    vid.onclick = () => { if (vid.paused) vid.play().catch(() => {}); else vid.pause(); };
+    vid.onerror = () => { const m = document.createElement("div"); m.className = "video-erro"; m.textContent = "Vídeo indisponível no momento"; slide.replaceChildren(m); };
+    slide.append(vid, som); trilho.append(slide);
+    if (obsVideo) obsVideo.observe(slide); else vid.autoplay = true;
   });
   wrap.append(trilho);
   const totalMidias = fotos.length + (p.videos || []).length;
