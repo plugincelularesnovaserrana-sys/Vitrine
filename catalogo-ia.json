@@ -1,0 +1,268 @@
+{
+  "atualizado_em": "2026-10-22T17:42:03.553Z",
+  "loja": {
+    "nome": "Plugin Celulares",
+    "cidade": "Nova Serrana - MG"
+  },
+  "total": 8,
+  "aparelhos": [
+    {
+      "id": "vwnuh6s",
+      "titulo": "iPhone 15 · 256GB · Seminovo · Preto · bateria 89%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Preto"
+      ],
+      "bateria": 89,
+      "observacao": "",
+      "preco_avista": 3599,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 410.29,
+          "total": 4102.9
+        }
+      },
+      "boleto": {
+        "entrada": 1099.9,
+        "parcelas": 15,
+        "parcela": 399.9,
+        "total": 7098.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-15-mv066d66-2.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/vwnuh6s/video-mvjtvxkw-1.mp4"
+      ]
+    },
+    {
+      "id": "vzstbvh",
+      "titulo": "iPhone 15 · 256GB · Seminovo · Rosa · bateria 82%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Rosa"
+      ],
+      "bateria": 82,
+      "observacao": "",
+      "preco_avista": 3599,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 410.29,
+          "total": 4102.9
+        }
+      },
+      "boleto": {
+        "entrada": 1099.9,
+        "parcelas": 15,
+        "parcela": 399.9,
+        "total": 7098.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-15-mv06nze2-1.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": "vzstv5x",
+      "titulo": "iPhone 14 · 256GB · Seminovo · Vermelho · bateria 82%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 82,
+      "observacao": "",
+      "preco_avista": 2899,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 330.49,
+          "total": 3304.9
+        }
+      },
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9,
+        "total": 5668.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-14-mv06o120-2.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": "vzstyl4",
+      "titulo": "iPhone 14 · 256GB · Seminovo · Lilás · bateria 83%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Lilás"
+      ],
+      "bateria": 83,
+      "observacao": "",
+      "preco_avista": 2899,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 330.49,
+          "total": 3304.9
+        }
+      },
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9,
+        "total": 5668.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-14-mv06szwf-1.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": "vzstitc",
+      "titulo": "iPhone 14 · 128GB · Seminovo · Preto · bateria 88%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Preto"
+      ],
+      "bateria": 88,
+      "observacao": "",
+      "preco_avista": 2690,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 306.66,
+          "total": 3066.6
+        }
+      },
+      "boleto": {
+        "entrada": 799.9,
+        "parcelas": 15,
+        "parcela": 299.9,
+        "total": 5298.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-14-mv06t1e9-2.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": "vzstyfe",
+      "titulo": "iPhone 14 · 128GB · Seminovo · Azul-claro · bateria 83%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Azul-claro"
+      ],
+      "bateria": 83,
+      "observacao": "",
+      "preco_avista": 2690,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 306.66,
+          "total": 3066.6
+        }
+      },
+      "boleto": {
+        "entrada": 799.9,
+        "parcelas": 15,
+        "parcela": 299.9,
+        "total": 5298.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-14-mv06yw26-1.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": "vzst2oo",
+      "titulo": "iPhone 13 · 256GB · Seminovo · Preto · bateria 85%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Preto"
+      ],
+      "bateria": 85,
+      "observacao": "",
+      "preco_avista": 2590,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 295.26,
+          "total": 2952.6
+        }
+      },
+      "boleto": {
+        "entrada": 779.9,
+        "parcelas": 15,
+        "parcela": 289.9,
+        "total": 5128.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-13-mv077eb7-1.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": "vzstezr",
+      "titulo": "iPhone 13 · 128GB · Seminovo · Vermelho · bateria 82%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 82,
+      "observacao": "",
+      "preco_avista": 2390,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 272.46,
+          "total": 2724.6
+        }
+      },
+      "boleto": {
+        "entrada": 719.9,
+        "parcelas": 15,
+        "parcela": 269.9,
+        "total": 4768.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/iphone-13-mv077fui-2.jpg"
+      ],
+      "videos": []
+    }
+  ]
+}
