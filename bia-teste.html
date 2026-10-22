@@ -95,7 +95,7 @@ form.send textarea{flex:1;font:inherit;border:1px solid var(--line);border-radiu
 </div>
 <script>
 // Endereço do cérebro da Bia (Cloudflare). Também pode vir na URL: bia-teste.html?api=https://...
-const BIA_URL_PADRAO = "COLE_AQUI_O_ENDERECO_DO_WORKER";
+const BIA_URL_PADRAO = "https://bia-plugin.plugincelularesnovaserrana.workers.dev";
 const params = new URLSearchParams(location.search);
 const BIA_URL = (params.get("api") || BIA_URL_PADRAO).replace(/\/+$/, "");
 const $ = id => document.getElementById(id);
