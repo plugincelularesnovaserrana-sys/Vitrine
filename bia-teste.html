@@ -150,7 +150,7 @@ async function falar(texto, retomada = false) {
       humano = true;
       const setor = { comercial: "Comercial (rodízio)", financeiro: "Financeiro", suporte: "Comercial · SUPORTE", fora_regiao: "Encerrado", nao_comercial: "Encerrado" }[r.acao] || "Comercial";
       $("k-setor").textContent = setor; sys("Transferido para " + setor);
-      if (r.resumo) $("nota").textContent = r.resumo;
+      if (r.resumo) $("nota").innerHTML = wa(r.resumo);
     }
   } catch (e) { sys("Não consegui falar com a Bia (" + e.message + ")."); log("erro: " + e.message); }
   ocupado = false; $("send").disabled = false; $("txt").focus();
