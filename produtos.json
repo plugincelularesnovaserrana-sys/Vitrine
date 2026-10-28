@@ -241,6 +241,30 @@
         "parcela": 374.63
       },
       "disponivel": true
+    },
+    {
+      "id": "ieyqo7e",
+      "plataforma": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 3629,
+      "fotos": [
+        "aparelhos/ieyqo7e/foto-mvslifp7-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/ieyqo7e/video-mvsligze-2.mp4"
+      ],
+      "cores": [
+        "Preto"
+      ],
+      "bateria": 89,
+      "boleto": {
+        "entrada": 1099.9,
+        "parcelas": 15,
+        "parcela": 399.9
+      },
+      "disponivel": true
     }
   ]
 }
