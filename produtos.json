@@ -265,6 +265,30 @@
         "parcela": 399.9
       },
       "disponivel": true
+    },
+    {
+      "id": "jfuh9nt",
+      "plataforma": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 3629,
+      "fotos": [
+        "aparelhos/jfuh9nt/foto-mvsljgqr-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/jfuh9nt/video-mvsljibf-2.mp4"
+      ],
+      "cores": [
+        "Rosa"
+      ],
+      "bateria": 82,
+      "boleto": {
+        "entrada": 1099.9,
+        "parcelas": 15,
+        "parcela": 399.9
+      },
+      "disponivel": true
     }
   ]
 }
