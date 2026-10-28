@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:38:05.818Z",
+  "atualizado_em": "2026-10-28T20:40:40.346Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 2,
+  "total": 3,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -72,6 +72,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/tcvkapm/video-mvsktf7z-2.mp4"
+      ]
+    },
+    {
+      "id": "wonp15p",
+      "titulo": "iPhone 12 Pro · 128GB · Seminovo · Dourado · bateria 100%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 12 Pro",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Dourado"
+      ],
+      "bateria": 100,
+      "observacao": "BATERIA | TAMPA TRASEIRA TROCADA",
+      "preco_avista": 2490,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 283.86,
+          "total": 2838.6
+        }
+      },
+      "boleto": {
+        "entrada": 747,
+        "parcelas": 15,
+        "parcela": 279.9,
+        "total": 4945.5
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/wonp15p/foto-mvskwpgo-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/wonp15p/video-mvskwqs9-2.mp4"
       ]
     }
   ]
