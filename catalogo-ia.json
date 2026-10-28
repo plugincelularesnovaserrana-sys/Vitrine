@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T21:00:27.862Z",
+  "atualizado_em": "2026-10-28T21:01:44.929Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 13,
+  "total": 14,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -444,6 +444,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/m4hg7yk/video-mvslm6mg-2.mp4"
+      ]
+    },
+    {
+      "id": "nrbmp7e",
+      "titulo": "iPhone 14 Pro Max · 256GB · Seminovo · Roxo · bateria 84%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14 Pro Max",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Roxo"
+      ],
+      "bateria": 84,
+      "observacao": "",
+      "preco_avista": 4190,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 477.66,
+          "total": 4776.6
+        }
+      },
+      "boleto": {
+        "entrada": 1290,
+        "parcelas": 15,
+        "parcela": 429.9,
+        "total": 7738.5
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/nrbmp7e/foto-mvslns8r-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/nrbmp7e/video-mvslnth7-2.mp4"
       ]
     }
   ]
