@@ -99,6 +99,28 @@
         "parcela": 269.9
       },
       "disponivel": true
+    },
+    {
+      "id": "0zpnzxh",
+      "plataforma": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2590,
+      "fotos": [
+        "aparelhos/0zpnzxh/foto-mvsl10l4-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/0zpnzxh/video-mvsl1233-2.mp4"
+      ],
+      "cores": [],
+      "bateria": 85,
+      "boleto": {
+        "entrada": 779.9,
+        "parcelas": 15,
+        "parcela": 289.9
+      },
+      "disponivel": true
     }
   ]
 }
