@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:44:02.931Z",
+  "atualizado_em": "2026-10-28T20:49:14.533Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 5,
+  "total": 6,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -172,6 +172,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/0zpnzxh/video-mvsl1233-2.mp4"
+      ]
+    },
+    {
+      "id": "7oojd4z",
+      "titulo": "iPhone 14 · 128GB · Seminovo · Azul-claro · bateria 83%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Azul-claro"
+      ],
+      "bateria": 83,
+      "observacao": "",
+      "preco_avista": 2690,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 306.66,
+          "total": 3066.6
+        }
+      },
+      "boleto": {
+        "entrada": 799.9,
+        "parcelas": 15,
+        "parcela": 299.9,
+        "total": 5298.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/7oojd4z/foto-mvsl7pq9-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/7oojd4z/video-mvsl7qyg-2.mp4"
       ]
     }
   ]
