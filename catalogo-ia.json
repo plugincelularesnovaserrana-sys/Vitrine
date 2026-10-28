@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:52:02.459Z",
+  "atualizado_em": "2026-10-28T20:52:59.428Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 8,
+  "total": 9,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -274,6 +274,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/b9w967x/video-mvslbc16-2.mp4"
+      ]
+    },
+    {
+      "id": "cizm54v",
+      "titulo": "iPhone 14 · 256GB · Seminovo · Lilás · bateria 83%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Lilás"
+      ],
+      "bateria": 83,
+      "observacao": "",
+      "preco_avista": 2890,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 329.46,
+          "total": 3294.6
+        }
+      },
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9,
+        "total": 5668.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/cizm54v/foto-mvslcjyu-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/cizm54v/video-mvslcl9b-2.mp4"
       ]
     }
   ]
