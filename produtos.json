@@ -289,6 +289,30 @@
         "parcela": 399.9
       },
       "disponivel": true
+    },
+    {
+      "id": "m4hg7yk",
+      "plataforma": "Apple",
+      "modelo": "iPhone 14 Pro Max",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 4190,
+      "fotos": [
+        "aparelhos/m4hg7yk/foto-mvslm5dz-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/m4hg7yk/video-mvslm6mg-2.mp4"
+      ],
+      "cores": [
+        "Preto"
+      ],
+      "bateria": 84,
+      "boleto": {
+        "entrada": 1290,
+        "parcelas": 15,
+        "parcela": 429.9
+      },
+      "disponivel": true
     }
   ]
 }
