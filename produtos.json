@@ -75,6 +75,30 @@
         "parcela": 279.9
       },
       "disponivel": true
+    },
+    {
+      "id": "zfwgquz",
+      "plataforma": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2490,
+      "fotos": [
+        "aparelhos/zfwgquz/foto-mvskzh2z-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/zfwgquz/video-mvskzie1-2.mp4"
+      ],
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 82,
+      "boleto": {
+        "entrada": 719.9,
+        "parcelas": 15,
+        "parcela": 269.9
+      },
+      "disponivel": true
     }
   ]
 }
