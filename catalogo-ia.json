@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:40:40.346Z",
+  "atualizado_em": "2026-10-28T20:42:50.649Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 3,
+  "total": 4,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -106,6 +106,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/wonp15p/video-mvskwqs9-2.mp4"
+      ]
+    },
+    {
+      "id": "zfwgquz",
+      "titulo": "iPhone 13 · 128GB · Seminovo · Vermelho · bateria 82%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 82,
+      "observacao": "",
+      "preco_avista": 2490,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 283.86,
+          "total": 2838.6
+        }
+      },
+      "boleto": {
+        "entrada": 719.9,
+        "parcelas": 15,
+        "parcela": 269.9,
+        "total": 4768.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/zfwgquz/foto-mvskzh2z-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/zfwgquz/video-mvskzie1-2.mp4"
       ]
     }
   ]
