@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:42:50.649Z",
+  "atualizado_em": "2026-10-28T20:44:02.931Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 4,
+  "total": 5,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -140,6 +140,38 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/zfwgquz/video-mvskzie1-2.mp4"
+      ]
+    },
+    {
+      "id": "0zpnzxh",
+      "titulo": "iPhone 13 · 256GB · Seminovo · bateria 85%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 13",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [],
+      "bateria": 85,
+      "observacao": "",
+      "preco_avista": 2590,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 295.26,
+          "total": 2952.6
+        }
+      },
+      "boleto": {
+        "entrada": 779.9,
+        "parcelas": 15,
+        "parcela": 289.9,
+        "total": 5128.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/0zpnzxh/foto-mvsl10l4-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/0zpnzxh/video-mvsl1233-2.mp4"
       ]
     }
   ]
