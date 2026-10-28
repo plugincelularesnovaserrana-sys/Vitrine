@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:57:35.124Z",
+  "atualizado_em": "2026-10-28T20:58:22.236Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 11,
+  "total": 12,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -376,6 +376,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/ieyqo7e/video-mvsligze-2.mp4"
+      ]
+    },
+    {
+      "id": "jfuh9nt",
+      "titulo": "iPhone 15 · 256GB · Seminovo · Rosa · bateria 82%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Rosa"
+      ],
+      "bateria": 82,
+      "observacao": "",
+      "preco_avista": 3629,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 413.71,
+          "total": 4137.1
+        }
+      },
+      "boleto": {
+        "entrada": 1099.9,
+        "parcelas": 15,
+        "parcela": 399.9,
+        "total": 7098.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/jfuh9nt/foto-mvsljgqr-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/jfuh9nt/video-mvsljibf-2.mp4"
       ]
     }
   ]
