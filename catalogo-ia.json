@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:36:37.709Z",
+  "atualizado_em": "2026-10-28T20:38:05.818Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 1,
+  "total": 2,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -38,6 +38,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/rgusv3q/video-mvskrj69-2.mp4"
+      ]
+    },
+    {
+      "id": "tcvkapm",
+      "titulo": "iPhone 12 · 128GB · Seminovo · Azul · bateria 80%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 12",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Azul"
+      ],
+      "bateria": 80,
+      "observacao": "",
+      "preco_avista": 2000,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 228,
+          "total": 2280
+        }
+      },
+      "boleto": {
+        "entrada": 619.9,
+        "parcelas": 15,
+        "parcela": 229.9,
+        "total": 4068.4
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/tcvkapm/foto-mvsktdxw-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/tcvkapm/video-mvsktf7z-2.mp4"
       ]
     }
   ]
