@@ -169,6 +169,30 @@
         "parcela": 299.9
       },
       "disponivel": true
+    },
+    {
+      "id": "b9w967x",
+      "plataforma": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2890,
+      "fotos": [
+        "aparelhos/b9w967x/foto-mvslbav9-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/b9w967x/video-mvslbc16-2.mp4"
+      ],
+      "cores": [
+        "Vermelho"
+      ],
+      "bateria": 82,
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9
+      },
+      "disponivel": true
     }
   ]
 }
