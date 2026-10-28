@@ -26,6 +26,30 @@
       },
       "disponivel": true,
       "marca": "Redmi"
+    },
+    {
+      "id": "tcvkapm",
+      "plataforma": "Apple",
+      "modelo": "iPhone 12",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2000,
+      "fotos": [
+        "aparelhos/tcvkapm/foto-mvsktdxw-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/tcvkapm/video-mvsktf7z-2.mp4"
+      ],
+      "cores": [
+        "Azul"
+      ],
+      "bateria": 80,
+      "boleto": {
+        "entrada": 619.9,
+        "parcelas": 15,
+        "parcela": 229.9
+      },
+      "disponivel": true
     }
   ]
 }
