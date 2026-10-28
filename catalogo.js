@@ -283,7 +283,7 @@ function carrossel(p){
     tentar();
     slide.append(img); trilho.append(slide);
   });
-  // vídeos: tocam sozinhos, mudos e em loop quando aparecem na tela; toque no vídeo pausa/continua; botão liga o som
+  // vídeos: tocam sozinhos, SEM SOM e em loop quando aparecem na tela; toque no vídeo pausa/continua
   const obsVideo = ("IntersectionObserver" in window) ? new IntersectionObserver(es => es.forEach(en => {
     const v = en.target.querySelector("video"); if (!v) return;
     if (en.isIntersecting) v.play().catch(() => {}); else v.pause();
@@ -294,16 +294,11 @@ function carrossel(p){
     vid.className = "video-slide"; vid.src = urlFoto(v) + "#t=0.1";
     vid.muted = true; vid.defaultMuted = true; vid.loop = true; vid.playsInline = true; vid.preload = "metadata";
     vid.setAttribute("muted", ""); vid.setAttribute("loop", ""); vid.setAttribute("playsinline", ""); vid.setAttribute("webkit-playsinline", "");
-    const som = document.createElement("button");
-    som.type = "button"; som.className = "video-som"; som.textContent = "🔇"; som.setAttribute("aria-label", "Ligar o som do vídeo");
-    som.onclick = e => {
-      e.stopPropagation(); vid.muted = !vid.muted;
-      som.textContent = vid.muted ? "🔇" : "🔊";
-      som.setAttribute("aria-label", vid.muted ? "Ligar o som do vídeo" : "Desligar o som do vídeo");
-    };
+    vid.disableRemotePlayback = true; vid.setAttribute("controlslist", "nodownload noremoteplayback");
+    vid.onvolumechange = () => { if (!vid.muted) vid.muted = true; };   // vídeos sempre sem som
     vid.onclick = () => { if (vid.paused) vid.play().catch(() => {}); else vid.pause(); };
     vid.onerror = () => { const m = document.createElement("div"); m.className = "video-erro"; m.textContent = "Vídeo indisponível no momento"; slide.replaceChildren(m); };
-    slide.append(vid, som); trilho.append(slide);
+    slide.append(vid); trilho.append(slide);
     if (obsVideo) obsVideo.observe(slide); else vid.autoplay = true;
   });
   wrap.append(trilho);
@@ -407,7 +402,72 @@ function cartao(p){
   q.append(a);
 
   art.append(carrossel(p), c, pr, q);
+  // toque no aparelho abre a ficha completa (setas, vídeo e botão do WhatsApp continuam funcionando normal)
+  art.addEventListener("click", e => {
+    if (e.target.closest(".seta, .quero, video")) return;
+    abrirDetalhe(p);
+  });
   return art;
+}
+
+/* ============ FICHA EXPANDIDA ============ */
+function abrirDetalhe(p){
+  let d = $("detalhe");
+  if (!d){
+    d = document.createElement("dialog"); d.id = "detalhe"; d.className = "detalhe";
+    d.addEventListener("close", () => {
+      d.replaceChildren();                                   // para os vídeos
+      if (history.state && history.state.detalhe) history.back();
+    });
+    d.addEventListener("click", e => { if (e.target === d) d.close(); });   // clique fora fecha
+    window.addEventListener("popstate", () => { if (d.open) d.close(); });  // botão voltar do celular fecha
+    document.body.append(d);
+  }
+  const box = el("div", "det");
+  const fechar = el("button", "det-fechar", "✕");
+  fechar.type = "button"; fechar.setAttribute("aria-label", "Fechar"); fechar.onclick = () => d.close();
+
+  const info = el("div", "det-info");
+  if (p.marca) info.append(el("p", "marca", p.marca));
+  info.append(el("h2", "det-modelo", p.modelo));
+  if (p.detalhes) info.append(el("p", "detalhes", p.detalhes));
+  const tags = el("div", "tags");
+  if (p.condicao) tags.append(el("span", "tag", p.condicao));
+  if (p.bateria){
+    const b = el("span", "tag bat" + (p.bateria < 80 ? " baixa" : ""));
+    b.innerHTML = ICONE_BAT; b.append(`Bateria ${p.bateria}%`); tags.append(b);
+  }
+  if (tags.children.length) info.append(tags);
+  if (p.observacao) info.append(el("p", "det-obs", "Obs: " + p.observacao));
+
+  const pr = el("div", "preco det-preco");
+  if (MODO === "boleto") precoBoleto(p, pr);
+  else if (MODO === "cartao") precoCartao(p, pr);
+  else precoCompleto(p, pr);
+  info.append(pr);
+
+  if (p.cores.length){
+    const cs = el("div", "det-cores");
+    p.cores.forEach(nome => {
+      const s = el("span"); const i = el("i");
+      i.style.background = MAPA_CORES[nome.toLowerCase()] || "#b8bcc6";
+      s.append(i, nome); cs.append(s);
+    });
+    info.append(cs);
+  }
+
+  const q = el("div", "quero det-quero");
+  const a = el("a");
+  a.href = linkZap(msgProduto(p)); a.target = "_blank"; a.rel = "noopener";
+  a.innerHTML = ICONE_ZAP; a.append(M.botao);
+  q.append(a);
+  info.append(q);
+
+  box.append(fechar, el("div", "det-midia"), info);
+  d.replaceChildren(box);
+  if (!d.open){ d.showModal(); history.pushState({detalhe: 1}, ""); }
+  box.querySelector(".det-midia").append(carrossel(p));       // depois de abrir, para medir o quadro certo
+  box.tabIndex = -1; box.style.outline = "none"; box.focus();
 }
 
 /* No catálogo do boleto só entram aparelhos com boleto cadastrado */
