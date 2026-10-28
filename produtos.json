@@ -193,6 +193,30 @@
         "parcela": 319.9
       },
       "disponivel": true
+    },
+    {
+      "id": "cizm54v",
+      "plataforma": "Apple",
+      "modelo": "iPhone 14",
+      "detalhes": "256GB",
+      "condicao": "Seminovo",
+      "preco": 2890,
+      "fotos": [
+        "aparelhos/cizm54v/foto-mvslcjyu-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/cizm54v/video-mvslcl9b-2.mp4"
+      ],
+      "cores": [
+        "Lilás"
+      ],
+      "bateria": 83,
+      "boleto": {
+        "entrada": 869.9,
+        "parcelas": 15,
+        "parcela": 319.9
+      },
+      "disponivel": true
     }
   ]
 }
