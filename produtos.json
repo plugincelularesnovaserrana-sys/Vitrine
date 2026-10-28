@@ -50,6 +50,31 @@
         "parcela": 229.9
       },
       "disponivel": true
+    },
+    {
+      "id": "wonp15p",
+      "plataforma": "Apple",
+      "modelo": "iPhone 12 Pro",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "preco": 2490,
+      "fotos": [
+        "aparelhos/wonp15p/foto-mvskwpgo-1.jpg"
+      ],
+      "videos": [
+        "aparelhos/wonp15p/video-mvskwqs9-2.mp4"
+      ],
+      "cores": [
+        "Dourado"
+      ],
+      "bateria": 100,
+      "observacao": "BATERIA | TAMPA TRASEIRA TROCADA",
+      "boleto": {
+        "entrada": 747,
+        "parcelas": 15,
+        "parcela": 279.9
+      },
+      "disponivel": true
     }
   ]
 }
