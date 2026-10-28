@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-10-28T20:52:59.428Z",
+  "atualizado_em": "2026-10-28T20:55:52.486Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 9,
+  "total": 10,
   "aparelhos": [
     {
       "id": "rgusv3q",
@@ -308,6 +308,40 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/cizm54v/video-mvslcl9b-2.mp4"
+      ]
+    },
+    {
+      "id": "g8pmhak",
+      "titulo": "iPhone 15 · 128GB · Seminovo · Azul-claro · bateria 81%",
+      "plataforma": "Apple",
+      "marca": "Apple",
+      "modelo": "iPhone 15",
+      "detalhes": "128GB",
+      "condicao": "Seminovo",
+      "cores": [
+        "Azul-claro"
+      ],
+      "bateria": 81,
+      "observacao": "",
+      "preco_avista": 3390,
+      "cartao": {
+        "10x": {
+          "parcelas": 10,
+          "parcela": 386.46,
+          "total": 3864.6
+        }
+      },
+      "boleto": {
+        "entrada": 999.9,
+        "parcelas": 15,
+        "parcela": 374.63,
+        "total": 6619.35
+      },
+      "fotos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/g8pmhak/foto-mvslg9i6-1.jpg"
+      ],
+      "videos": [
+        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/g8pmhak/video-mvslgaqz-2.mp4"
       ]
     }
   ]
