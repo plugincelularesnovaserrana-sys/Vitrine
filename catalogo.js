@@ -227,7 +227,7 @@ function msgProduto(p){
 // ajusta o zoom e a posição para todos os aparelhos ocuparem o mesmo espaço do quadrado.
 function ajustarFoto(img){
   try {
-    if (img.src.startsWith("data:")) return;
+    if (img.src.startsWith("data:") || img.classList.contains("cheia")) return;
     const w = img.naturalWidth, h = img.naturalHeight; if (!w || !h) return;
     const s = 200 / Math.max(w, h), cw = Math.max(1, Math.round(w * s)), ch = Math.max(1, Math.round(h * s));
     const c = document.createElement("canvas"); c.width = cw; c.height = ch;
@@ -245,8 +245,12 @@ function ajustarFoto(img){
     if (x0 < 0 || y0 < 0 || x1 <= x0 || y1 <= y0) return;
     const bx = x0 / cw, by = y0 / ch, bw = (x1 + 1 - x0) / cw, bh = (y1 + 1 - y0) / ch;
     if (bw < 0.1 || bh < 0.1) return;
-    const a = w / h, T = 0.88;                                    // aparelho ocupa 88% do quadrado
-    const W = T / Math.max(bw, bh / a), H = W / a;
+    // Foto real (tirada na loja, fundo ocupando tudo): preenche o quadro inteiro, sem borda branca
+    if (bw > 0.9 && bh > 0.9){ img.classList.add("cheia"); return; }
+    const caixa = img.closest(".slide") || img.parentElement;
+    const F = caixa && caixa.clientHeight ? caixa.clientWidth / caixa.clientHeight : 0.75; // formato do quadro (3:4)
+    const a = w / h, T = 0.88;                                    // aparelho ocupa 88% do quadro
+    const W = T / Math.max(bw, bh * F / a), H = W * F / a;
     img.style.width = (W * 100) + "%"; img.style.height = (H * 100) + "%";
     img.style.left = ((0.5 - (bx + bw / 2) * W) * 100) + "%";
     img.style.top = ((0.5 - (by + bh / 2) * H) * 100) + "%";
@@ -262,6 +266,7 @@ function carrossel(p){
     const slide = document.createElement("div"); slide.className = "slide";
     const img = document.createElement("img");
     img.loading = "lazy"; img.alt = nomeCompleto(p);
+    if (f && !/\.png$/i.test(f)) img.classList.add("cheia");   // foto real (jpg do WhatsApp): preenche o quadro
     // tenta: foto local (com e sem permissão de medir) e depois a foto no GitHub
     const tent = [[urlFoto(f), true], [urlFoto(f), false]];
     const rem = urlRemota(f);
@@ -420,7 +425,32 @@ function desenhar(){
     const e = el("div", "vazio", produtos.length ? "Nenhum aparelho encontrado. Tente outra busca ou outro filtro." : "Lista indisponível no momento. Chame a gente no WhatsApp.");
     grade.append(e); return;
   }
-  itens.forEach(p => grade.append(cartao(p)));
+  itens.sort(comparar).forEach(p => grade.append(cartao(p)));
+}
+
+/* Ordem da vitrine:
+   1) iPhone Pro Max  2) iPhone Pro  3) iPhone normal (Plus/Air/mini/SE)  -> cada um do mais novo ao mais antigo
+   4) Android -> do mais caro ao mais barato */
+function ordemIphone(p){
+  const m = p.modelo.toLowerCase();
+  const linha = /pro\s*max/.test(m) ? 0 : /\bpro\b/.test(m) ? 1 : 2;
+  let geracao = 0;
+  const n = m.match(/iphone\s*(\d{1,2})/);
+  if (n) geracao = parseInt(n[1], 10);
+  else if (/iphone\s*x/.test(m)) geracao = 10;       // X, XR, XS
+  else if (/\bse\b/.test(m)) geracao = 9;            // SE
+  else if (/\bair\b/.test(m)) geracao = 17;          // iPhone Air
+  return {linha, geracao};
+}
+function comparar(a, b){
+  const ia = a.familia === "iPhone", ib = b.familia === "iPhone";
+  if (ia !== ib) return ia ? -1 : 1;                 // iPhones antes dos Androids
+  if (ia){
+    const oa = ordemIphone(a), ob = ordemIphone(b);
+    if (oa.linha !== ob.linha) return oa.linha - ob.linha;
+    if (oa.geracao !== ob.geracao) return ob.geracao - oa.geracao;
+  }
+  return b.preco - a.preco;                          // mesmo modelo / Android: mais caro primeiro
 }
 
 function desenharAbas(){
