@@ -52,31 +52,6 @@
       "disponivel": true
     },
     {
-      "id": "wonp15p",
-      "plataforma": "Apple",
-      "modelo": "iPhone 12 Pro",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 2490,
-      "fotos": [
-        "aparelhos/wonp15p/foto-mvskwpgo-1.jpg"
-      ],
-      "videos": [
-        "aparelhos/wonp15p/video-mvskwqs9-2.mp4"
-      ],
-      "cores": [
-        "Dourado"
-      ],
-      "bateria": 100,
-      "observacao": "BATERIA | TAMPA TRASEIRA TROCADA",
-      "boleto": {
-        "entrada": 747,
-        "parcelas": 15,
-        "parcela": 279.9
-      },
-      "disponivel": true
-    },
-    {
       "id": "zfwgquz",
       "plataforma": "Apple",
       "modelo": "iPhone 13",
@@ -215,30 +190,6 @@
         "entrada": 869.9,
         "parcelas": 15,
         "parcela": 319.9
-      },
-      "disponivel": true
-    },
-    {
-      "id": "g8pmhak",
-      "plataforma": "Apple",
-      "modelo": "iPhone 15",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 3390,
-      "fotos": [
-        "aparelhos/g8pmhak/foto-mvslg9i6-1.jpg"
-      ],
-      "videos": [
-        "aparelhos/g8pmhak/video-mvslgaqz-2.mp4"
-      ],
-      "cores": [
-        "Azul-claro"
-      ],
-      "bateria": 81,
-      "boleto": {
-        "entrada": 999.9,
-        "parcelas": 15,
-        "parcela": 374.63
       },
       "disponivel": true
     },
