@@ -4,30 +4,6 @@
   },
   "produtos": [
     {
-      "id": "rgusv3q",
-      "plataforma": "Android",
-      "modelo": "Redmi 15C",
-      "detalhes": "128GB · 4GB RAM",
-      "condicao": "Novo",
-      "preco": 1099.9,
-      "fotos": [
-        "aparelhos/rgusv3q/foto-mvskrhu7-1.jpg"
-      ],
-      "videos": [
-        "aparelhos/rgusv3q/video-mvskrj69-2.mp4"
-      ],
-      "cores": [
-        "Preto"
-      ],
-      "boleto": {
-        "entrada": 274.9,
-        "parcelas": 11,
-        "parcela": 172.69
-      },
-      "disponivel": true,
-      "marca": "Redmi"
-    },
-    {
       "id": "tcvkapm",
       "plataforma": "Apple",
       "modelo": "iPhone 12",
@@ -94,30 +70,6 @@
         "entrada": 779.9,
         "parcelas": 15,
         "parcela": 289.9
-      },
-      "disponivel": true
-    },
-    {
-      "id": "7oojd4z",
-      "plataforma": "Apple",
-      "modelo": "iPhone 14",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "preco": 2690,
-      "fotos": [
-        "aparelhos/7oojd4z/foto-mvsl7pq9-1.jpg"
-      ],
-      "videos": [
-        "aparelhos/7oojd4z/video-mvsl7qyg-2.mp4"
-      ],
-      "cores": [
-        "Azul-claro"
-      ],
-      "bateria": 83,
-      "boleto": {
-        "entrada": 799.9,
-        "parcelas": 15,
-        "parcela": 299.9
       },
       "disponivel": true
     },
@@ -190,30 +142,6 @@
         "entrada": 869.9,
         "parcelas": 15,
         "parcela": 319.9
-      },
-      "disponivel": true
-    },
-    {
-      "id": "ieyqo7e",
-      "plataforma": "Apple",
-      "modelo": "iPhone 15",
-      "detalhes": "256GB",
-      "condicao": "Seminovo",
-      "preco": 3629,
-      "fotos": [
-        "aparelhos/ieyqo7e/foto-mvslifp7-1.jpg"
-      ],
-      "videos": [
-        "aparelhos/ieyqo7e/video-mvsligze-2.mp4"
-      ],
-      "cores": [
-        "Preto"
-      ],
-      "bateria": 89,
-      "boleto": {
-        "entrada": 1099.9,
-        "parcelas": 15,
-        "parcela": 399.9
       },
       "disponivel": true
     },
