@@ -1,45 +1,11 @@
 {
-  "atualizado_em": "2026-10-28T21:01:44.929Z",
+  "atualizado_em": "2026-11-09T20:04:51.518Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 14,
+  "total": 9,
   "aparelhos": [
-    {
-      "id": "rgusv3q",
-      "titulo": "Redmi 15C · 128GB · 4GB RAM · Novo · Preto",
-      "plataforma": "Android",
-      "marca": "Redmi",
-      "modelo": "Redmi 15C",
-      "detalhes": "128GB · 4GB RAM",
-      "condicao": "Novo",
-      "cores": [
-        "Preto"
-      ],
-      "bateria": null,
-      "observacao": "",
-      "preco_avista": 1099.9,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 125.39,
-          "total": 1253.9
-        }
-      },
-      "boleto": {
-        "entrada": 274.9,
-        "parcelas": 11,
-        "parcela": 172.69,
-        "total": 2174.49
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/rgusv3q/foto-mvskrhu7-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/rgusv3q/video-mvskrj69-2.mp4"
-      ]
-    },
     {
       "id": "tcvkapm",
       "titulo": "iPhone 12 · 128GB · Seminovo · Azul · bateria 80%",
@@ -72,40 +38,6 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/tcvkapm/video-mvsktf7z-2.mp4"
-      ]
-    },
-    {
-      "id": "wonp15p",
-      "titulo": "iPhone 12 Pro · 128GB · Seminovo · Dourado · bateria 100%",
-      "plataforma": "Apple",
-      "marca": "Apple",
-      "modelo": "iPhone 12 Pro",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "cores": [
-        "Dourado"
-      ],
-      "bateria": 100,
-      "observacao": "BATERIA | TAMPA TRASEIRA TROCADA",
-      "preco_avista": 2490,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 283.86,
-          "total": 2838.6
-        }
-      },
-      "boleto": {
-        "entrada": 747,
-        "parcelas": 15,
-        "parcela": 279.9,
-        "total": 4945.5
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/wonp15p/foto-mvskwpgo-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/wonp15p/video-mvskwqs9-2.mp4"
       ]
     },
     {
@@ -172,40 +104,6 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/0zpnzxh/video-mvsl1233-2.mp4"
-      ]
-    },
-    {
-      "id": "7oojd4z",
-      "titulo": "iPhone 14 · 128GB · Seminovo · Azul-claro · bateria 83%",
-      "plataforma": "Apple",
-      "marca": "Apple",
-      "modelo": "iPhone 14",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "cores": [
-        "Azul-claro"
-      ],
-      "bateria": 83,
-      "observacao": "",
-      "preco_avista": 2690,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 306.66,
-          "total": 3066.6
-        }
-      },
-      "boleto": {
-        "entrada": 799.9,
-        "parcelas": 15,
-        "parcela": 299.9,
-        "total": 5298.4
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/7oojd4z/foto-mvsl7pq9-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/7oojd4z/video-mvsl7qyg-2.mp4"
       ]
     },
     {
@@ -308,74 +206,6 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/cizm54v/video-mvslcl9b-2.mp4"
-      ]
-    },
-    {
-      "id": "g8pmhak",
-      "titulo": "iPhone 15 · 128GB · Seminovo · Azul-claro · bateria 81%",
-      "plataforma": "Apple",
-      "marca": "Apple",
-      "modelo": "iPhone 15",
-      "detalhes": "128GB",
-      "condicao": "Seminovo",
-      "cores": [
-        "Azul-claro"
-      ],
-      "bateria": 81,
-      "observacao": "",
-      "preco_avista": 3390,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 386.46,
-          "total": 3864.6
-        }
-      },
-      "boleto": {
-        "entrada": 999.9,
-        "parcelas": 15,
-        "parcela": 374.63,
-        "total": 6619.35
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/g8pmhak/foto-mvslg9i6-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/g8pmhak/video-mvslgaqz-2.mp4"
-      ]
-    },
-    {
-      "id": "ieyqo7e",
-      "titulo": "iPhone 15 · 256GB · Seminovo · Preto · bateria 89%",
-      "plataforma": "Apple",
-      "marca": "Apple",
-      "modelo": "iPhone 15",
-      "detalhes": "256GB",
-      "condicao": "Seminovo",
-      "cores": [
-        "Preto"
-      ],
-      "bateria": 89,
-      "observacao": "",
-      "preco_avista": 3629,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 413.71,
-          "total": 4137.1
-        }
-      },
-      "boleto": {
-        "entrada": 1099.9,
-        "parcelas": 15,
-        "parcela": 399.9,
-        "total": 7098.4
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/ieyqo7e/foto-mvslifp7-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/ieyqo7e/video-mvsligze-2.mp4"
       ]
     },
     {
