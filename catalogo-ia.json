@@ -1,10 +1,10 @@
 {
-  "atualizado_em": "2026-11-09T20:07:45.589Z",
+  "atualizado_em": "2026-11-17T13:32:45.565Z",
   "loja": {
     "nome": "Plugin Celulares",
     "cidade": "Nova Serrana - MG"
   },
-  "total": 9,
+  "total": 7,
   "aparelhos": [
     {
       "id": "tcvkapm",
@@ -172,74 +172,6 @@
       ],
       "videos": [
         "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/b9w967x/video-mvslbc16-2.mp4"
-      ]
-    },
-    {
-      "id": "cizm54v",
-      "titulo": "iPhone 14 · 256GB · Seminovo · Lilás · bateria 83%",
-      "plataforma": "Apple",
-      "marca": "Apple",
-      "modelo": "iPhone 14",
-      "detalhes": "256GB",
-      "condicao": "Seminovo",
-      "cores": [
-        "Lilás"
-      ],
-      "bateria": 83,
-      "observacao": "",
-      "preco_avista": 2890,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 329.46,
-          "total": 3294.6
-        }
-      },
-      "boleto": {
-        "entrada": 869.9,
-        "parcelas": 15,
-        "parcela": 319.9,
-        "total": 5668.4
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/cizm54v/foto-mvslcjyu-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/cizm54v/video-mvslcl9b-2.mp4"
-      ]
-    },
-    {
-      "id": "jfuh9nt",
-      "titulo": "iPhone 15 · 256GB · Seminovo · Rosa · bateria 82%",
-      "plataforma": "Apple",
-      "marca": "Apple",
-      "modelo": "iPhone 15",
-      "detalhes": "256GB",
-      "condicao": "Seminovo",
-      "cores": [
-        "Rosa"
-      ],
-      "bateria": 82,
-      "observacao": "",
-      "preco_avista": 3629,
-      "cartao": {
-        "10x": {
-          "parcelas": 10,
-          "parcela": 413.71,
-          "total": 4137.1
-        }
-      },
-      "boleto": {
-        "entrada": 1099.9,
-        "parcelas": 15,
-        "parcela": 399.9,
-        "total": 7098.4
-      },
-      "fotos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/jfuh9nt/foto-mvsljgqr-1.jpg"
-      ],
-      "videos": [
-        "https://plugincelularesnovaserrana-sys.github.io/Vitrine/assets/aparelhos/jfuh9nt/video-mvsljibf-2.mp4"
       ]
     },
     {
